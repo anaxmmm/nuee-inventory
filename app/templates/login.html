@@ -15,27 +15,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        /* sin cambios — CSS no se traduce */
         :root {
             --font-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-brand:   'Tenor Sans', Georgia, serif;
-            --bg-card:      #0A0A0A;
-            --bg-body:      #F2F2F2;
-            --text-primary: #111111;
-            --text-secondary: #666666;
-            --text-muted:   #AAAAAA;
-            --border-color: #E8E8E8;
+
+            --bg-card:      #FFFFFF;
+            --bg-body:      #F7F9FB;
+            --text-primary: #14212B;
+            --text-secondary: #5C6B75;
+            --text-muted:   #9AA7AF;
+            --border-color: #E4EBEF;
             --radius:       10px;
-            --radius-lg:    14px;
+            --radius-lg:    18px;
+
+            --sky-deep:  #7B8FC7;
+            --sky-mid:   #A3B2D9;
+            --sky-light: #C7D2E8;
+            --sky-pale:  #EEF1F8;
         }
 
         [data-theme="dark"] {
-            --bg-card:      #161616;
-            --bg-body:      #0A0A0A;
-            --text-primary: #F5F5F5;
-            --text-secondary: #999999;
-            --text-muted:   #555555;
-            --border-color: #2A2A2A;
+            --bg-card:      #161B1F;
+            --bg-body:      #0B0D0F;
+            --text-primary: #F0F4F6;
+            --text-secondary: #9AA7AF;
+            --text-muted:   #5C6B75;
+            --border-color: #232B30;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,26 +48,266 @@
         body {
             font-family: var(--font-primary);
             min-height: 100vh;
+            background: var(--bg-body);
+            transition: background 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        .login-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ══════════ PANEL VISUAL (izquierda) ══════════ */
+        .login-visual {
+            flex: 1;
+            position: relative;
+            background: linear-gradient(160deg, #8593C2 0%, #A9B7DC 45%, #D4DCEE 100%);
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: #FFFFFF;
+            border-radius: 100px;
+            opacity: 0.85;
+            filter: blur(0.5px);
+        }
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: #FFFFFF;
+            border-radius: 50%;
+        }
+        .cloud-1 {
+            width: 180px; height: 60px; top: 12%; left: -60px;
+            animation: drift-right 32s linear infinite, bob 7s ease-in-out infinite;
+        }
+        .cloud-1::before { width: 90px; height: 90px; top: -45px; left: 20px; }
+        .cloud-1::after  { width: 70px; height: 70px; top: -32px; left: 95px; }
+
+        .cloud-2 {
+            width: 140px; height: 46px; top: 55%; right: -60px; opacity: 0.55;
+            animation: drift-left 26s linear infinite, bob 8.5s ease-in-out infinite 1s;
+        }
+        .cloud-2::before { width: 70px; height: 70px; top: -34px; left: 15px; }
+        .cloud-2::after  { width: 50px; height: 50px; top: -24px; left: 70px; }
+
+        .cloud-3 {
+            width: 110px; height: 38px; top: 30%; right: 20%; opacity: 0.45;
+            animation: drift-right 40s linear infinite, bob 6s ease-in-out infinite 2s;
+        }
+        .cloud-3::before { width: 55px; height: 55px; top: -27px; left: 10px; }
+        .cloud-3::after  { width: 40px; height: 40px; top: -18px; left: 55px; }
+
+        .cloud-4 {
+            width: 90px; height: 30px; top: 5%; right: -50px; opacity: 0.35;
+            animation: drift-left 22s linear infinite, bob 6.5s ease-in-out infinite 0.5s;
+        }
+        .cloud-4::before { width: 45px; height: 45px; top: -22px; left: 8px; }
+        .cloud-4::after  { width: 32px; height: 32px; top: -15px; left: 45px; }
+
+        .cloud-5 {
+            width: 220px; height: 74px; top: 68%; left: -80px; opacity: 0.4;
+            animation: drift-right 46s linear infinite, bob 9s ease-in-out infinite 1.8s;
+        }
+        .cloud-5::before { width: 110px; height: 110px; top: -55px; left: 25px; }
+        .cloud-5::after  { width: 85px; height: 85px; top: -40px; left: 115px; }
+
+        .cloud-6 {
+            width: 70px; height: 24px; top: 42%; left: 25%; opacity: 0.3;
+            animation: drift-left 19s linear infinite, bob 5.5s ease-in-out infinite 2.5s;
+        }
+        .cloud-6::before { width: 35px; height: 35px; top: -17px; left: 6px; }
+        .cloud-6::after  { width: 26px; height: 26px; top: -12px; left: 36px; }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-14px); }
+        }
+
+        @keyframes drift-right {
+            0%   { margin-left: 0; }
+            100% { margin-left: calc(100% + 200px); }
+        }
+
+        @keyframes drift-left {
+            0%   { margin-right: 0; }
+            100% { margin-right: calc(100% + 200px); }
+        }
+
+        /* Degradado inferior como en el referente, para que el texto flote sobre la imagen/gradiente */
+        .visual-overlay {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 55%;
+            background: linear-gradient(to top, rgba(15,50,75,0.55) 0%, rgba(15,50,75,0.15) 60%, transparent 100%);
+        }
+
+        .visual-content {
+            position: absolute;
+            left: 56px; right: 56px; bottom: 48px;
+            z-index: 2;
+        }
+
+        .visual-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.25);
+            border: 0.5px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(6px);
+            color: #FFFFFF;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+            width: fit-content;
+            margin-bottom: 18px;
+        }
+
+        .visual-title {
+            font-family: var(--font-brand);
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.3;
+            color: #FFFFFF;
+            max-width: 420px;
+            text-shadow: 0 2px 16px rgba(20,60,90,0.2);
+        }
+
+        .visual-subtitle {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.9);
+            margin-top: 12px;
+            max-width: 380px;
+        }
+
+        .visual-dots {
+            display: flex;
+            gap: 6px;
+            margin-top: 24px;
+        }
+
+        .visual-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .visual-dot.active {
+            width: 20px;
+            background: #FFFFFF;
+        }
+
+        /* ══════════ PANEL FORMULARIO (derecha) ══════════ */
+        .login-form-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 32px 56px;
+            position: relative;
+        }
+
+        .top-controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 40px;
+        }
+
+        /* Selector de idioma tipo dropdown, fiel al referente */
+        .lang-dropdown { position: relative; }
+
+        .lang-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 6px 4px;
+        }
+
+        .lang-dropdown-toggle:hover { color: var(--text-primary); }
+
+        .lang-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%; right: 0;
+            margin-top: 8px;
+            background: var(--bg-card);
+            border: 0.5px solid var(--border-color);
+            border-radius: var(--radius);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            padding: 6px;
+            min-width: 140px;
+            z-index: 10;
+        }
+
+        .lang-dropdown-menu.show { display: block; }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .lang-option:hover { background: var(--sky-pale); }
+        [data-theme="dark"] .lang-option:hover { background: rgba(126,193,228,0.1); }
+
+        .lang-option.active { color: var(--sky-deep); font-weight: 600; }
+
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 0.5px solid var(--border-color);
+            border-radius: 50px;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            margin-left: 12px;
+        }
+
+        .theme-toggle-btn {
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            background: var(--bg-body);
-            transition: background 0.3s ease;
+            transition: all 0.2s ease;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .theme-toggle-btn.active {
+            background: var(--sky-deep);
+            color: #FFFFFF;
+        }
+
+        .top-controls-inner {
+            display: flex;
+            align-items: center;
         }
 
         .login-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            border: 0.5px solid rgba(255,255,255,0.08);
-            padding: 48px 44px;
             width: 100%;
-            max-width: 420px;
+            max-width: 380px;
+            margin: auto;
             animation: slideUp 0.35s ease;
-        }
-
-        [data-theme="light"] .login-card {
-            border-color: rgba(0,0,0,0.12);
         }
 
         @keyframes slideUp {
@@ -70,51 +315,45 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        .login-header {
-            text-align: center;
-            margin-bottom: 36px;
-        }
+        .login-header { margin-bottom: 28px; }
 
         .brand-icon {
-            width: 56px;
-            height: 56px;
-            background: #FFFFFF;
+            width: 52px;
+            height: 52px;
+            background: var(--sky-pale);
             border-radius: var(--radius);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
-        .brand-icon svg {
-            width: 32px;
-            height: 32px;
-        }
+        [data-theme="dark"] .brand-icon { background: rgba(126,193,228,0.12); }
+
+        .brand-icon svg { width: 30px; height: 30px; }
 
         .brand-name {
             font-family: var(--font-brand);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 400;
-            letter-spacing: 0.14em;
-            color: #FFFFFF;
-            margin-bottom: 6px;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
 
         .brand-subtitle {
             font-size: 0.85rem;
-            font-weight: 400;
             color: var(--text-muted);
-            letter-spacing: 0.01em;
         }
 
         .form-group { margin-bottom: 14px; }
 
         .form-label {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
             text-transform: uppercase;
-            color: #FFFFFF;
+            color: var(--text-secondary);
             margin-bottom: 6px;
             display: block;
         }
@@ -123,9 +362,9 @@
             font-family: var(--font-primary);
             width: 100%;
             padding: 11px 14px;
-            background: #1A1A1A;
-            color: #F5F5F5;
-            border: 0.5px solid #2A2A2A;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            border: 0.5px solid var(--border-color);
             border-radius: var(--radius);
             font-size: 0.9rem;
             transition: border-color 0.15s, box-shadow 0.15s;
@@ -133,20 +372,20 @@
         }
 
         .form-control:focus {
-            border-color: #F5F5F5;
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
-            background: #222222;
+            border-color: var(--sky-mid);
+            box-shadow: 0 0 0 3px rgba(126,193,228,0.18);
+            background: var(--bg-card);
         }
 
-        .form-control::placeholder { color: #555555; }
+        .form-control::placeholder { color: var(--text-muted); }
 
         .btn-login {
             width: 100%;
             padding: 12px;
-            background: #FFFFFF;
+            background: var(--sky-deep);
             border: none;
             border-radius: var(--radius);
-            color: #111111;
+            color: #FFFFFF;
             font-family: var(--font-primary);
             font-weight: 500;
             font-size: 0.9rem;
@@ -161,14 +400,12 @@
         }
 
         .btn-login:hover {
-            background: #F0F0F0;
+            background: #3E8DBB;
             transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(255,255,255,0.12);
+            box-shadow: 0 6px 18px rgba(79,163,209,0.28);
         }
 
-        .btn-login:active {
-            transform: translateY(0);
-        }
+        .btn-login:active { transform: translateY(0); }
 
         .login-extras {
             display: flex;
@@ -179,88 +416,106 @@
 
         .form-check-label {
             font-size: 0.85rem;
-            color: #999999;
+            color: var(--text-secondary);
         }
 
         .form-check-input {
-            background-color: #1A1A1A;
-            border-color: #444444;
+            background-color: var(--bg-body);
+            border-color: var(--border-color);
         }
 
         .form-check-input:checked {
-            background-color: #FFFFFF;
-            border-color: #FFFFFF;
+            background-color: var(--sky-deep);
+            border-color: var(--sky-deep);
         }
 
         .link-forgot {
-            color: #999999;
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 400;
             transition: color 0.15s;
         }
 
-        .link-forgot:hover { color: #FFFFFF; }
+        .link-forgot:hover { color: var(--sky-deep); }
+
+        /* ── DIVISOR "o" ── */
+        .divider-o {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .divider-o::before,
+        .divider-o::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        /* ── BOTÓN GOOGLE ── */
+        .btn-google {
+            width: 100%;
+            padding: 11px;
+            background: var(--bg-card);
+            border: 0.5px solid var(--border-color);
+            border-radius: var(--radius);
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            font-weight: 500;
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+
+        .btn-google:hover {
+            background: var(--bg-body);
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .btn-google svg { width: 18px; height: 18px; }
 
         .login-footer {
             text-align: center;
             margin-top: 24px;
             padding-top: 20px;
-            border-top: 0.5px solid #2A2A2A;
+            border-top: 0.5px solid var(--border-color);
             font-size: 0.875rem;
-            color: #666666;
+            color: var(--text-muted);
         }
 
         .login-footer a {
-            color: #FFFFFF;
+            color: var(--sky-deep);
             text-decoration: none;
             font-weight: 500;
         }
 
         .login-footer a:hover { text-decoration: underline; }
 
-        .theme-toggle {
-            position: fixed;
-            top: 20px; right: 20px;
-            background: #111111;
-            border: 0.5px solid #2A2A2A;
-            border-radius: 50px;
-            padding: 3px;
-            display: flex;
-            align-items: center;
-            gap: 2px;
+        /* ── FOOTER DE MARCA (como RO App) ── */
+        .brand-footer {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding-top: 24px;
         }
 
-        [data-theme="light"] .theme-toggle {
-            background: #FFFFFF;
-            border-color: #E0E0E0;
+        .brand-footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
         }
 
-        .theme-toggle-btn {
-            width: 32px; height: 32px;
-            border-radius: 50%;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            font-size: 0.85rem;
-        }
-
-        [data-theme="dark"] .theme-toggle-btn { color: #555555; }
-        [data-theme="light"] .theme-toggle-btn { color: #AAAAAA; }
-
-        [data-theme="dark"] .theme-toggle-btn.active {
-            background: #F5F5F5;
-            color: #111111;
-        }
-
-        [data-theme="light"] .theme-toggle-btn.active {
-            background: #111111;
-            color: #FFFFFF;
-        }
+        .brand-footer a:hover { text-decoration: underline; }
 
         .alert {
             border-radius: var(--radius);
@@ -270,81 +525,171 @@
             padding: 10px 14px;
         }
 
-        .alert-danger  { background: rgba(248,113,113,0.1); border-color: rgba(248,113,113,0.2); color: #f87171; }
-        .alert-success { background: rgba(52,211,153,0.1);  border-color: rgba(52,211,153,0.2);  color: #34d399; }
-        .alert-warning { background: rgba(251,191,36,0.1);  border-color: rgba(251,191,36,0.2);  color: #fbbf24; }
-        .alert-info    { background: #1A1A1A; border-color: #2A2A2A; color: #AAAAAA; }
+        .alert-danger  { background: rgba(220,38,38,0.08);  border-color: rgba(220,38,38,0.18);  color: #C0392B; }
+        .alert-success { background: rgba(79,163,209,0.1);  border-color: rgba(79,163,209,0.22);  color: #2E6E8F; }
+        .alert-warning { background: rgba(217,119,6,0.08);  border-color: rgba(217,119,6,0.18);   color: #92610A; }
+        .alert-info    { background: var(--sky-pale); border-color: var(--border-color); color: var(--text-secondary); }
 
-        .btn-close { filter: invert(1); }
+        [data-theme="dark"] .alert-danger  { background: rgba(248,113,113,0.1); border-color: rgba(248,113,113,0.2); color: #f87171; }
+        [data-theme="dark"] .alert-success { background: rgba(126,193,228,0.12); border-color: rgba(126,193,228,0.25); color: #7EC1E4; }
+        [data-theme="dark"] .alert-warning { background: rgba(251,191,36,0.1);  border-color: rgba(251,191,36,0.2);  color: #fbbf24; }
+
+        .btn-close { opacity: 0.5; }
+        [data-theme="dark"] .btn-close { filter: invert(1); opacity: 0.5; }
+
+        @media (max-width: 900px) {
+            .login-visual { display: none; }
+            .login-form-panel { flex: 1; padding: 24px; }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="theme-toggle">
-        <button class="theme-toggle-btn" id="btn-light" onclick="setTheme('light')" title="{{ _('Modo claro') }}">
-            <i class="bi bi-sun-fill"></i>
-        </button>
-        <button class="theme-toggle-btn" id="btn-dark" onclick="setTheme('dark')" title="{{ _('Modo oscuro') }}">
-            <i class="bi bi-moon-fill"></i>
-        </button>
-    </div>
+    <div class="login-wrapper">
 
-    <div class="login-card">
+        <!-- ══════ PANEL VISUAL ══════ -->
+        <div class="login-visual">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+            <div class="cloud cloud-5"></div>
+            <div class="cloud cloud-6"></div>
+            <div class="visual-overlay"></div>
 
-        <div class="login-header">
-            <div class="brand-icon">
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24.5 14.5C24.5 12.01 22.49 10 20 10C19.38 10 18.79 10.13 18.25 10.36C17.42 8.39 15.46 7 13.17 7C10.04 7 7.5 9.54 7.5 12.67C7.5 12.78 7.5 12.89 7.51 13C6.07 13.35 5 14.65 5 16.2C5 17.99 6.46 19.45 8.25 19.45H10" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 13 C16 13 11 18.5 11 21.5 C11 24.09 13.24 26 16 26 C18.76 26 21 24.09 21 21.5 C21 18.5 16 13 16 13Z" fill="#111111"/>
-                    <path d="M13.5 21 C13.5 19.5 14.8 17.8 15.5 16.8" stroke="white" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-                </svg>
-            </div>
-            <p class="brand-name">Nuée</p>
-            <p class="brand-subtitle">{{ _('Inicia sesión para continuar') }}</p>
-        </div>
-
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-        {% for category, message in messages %}
-        <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-
-        <form method="POST" action="{{ url_for('auth.login') }}">
-            {{ form.hidden_tag() }}
-
-            <div class="form-group">
-                <label class="form-label">{{ _('Usuario o correo') }}</label>
-                {{ form.username(class="form-control", placeholder=_('tu@correo.com')) }}
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">{{ _('Contraseña') }}</label>
-                {{ form.password(class="form-control", placeholder="••••••••") }}
-            </div>
-
-            <div class="login-extras">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                    <label class="form-check-label" for="remember">{{ _('Recordarme') }}</label>
+            <div class="visual-content">
+                <div class="visual-badge">
+                    <i class="bi bi-cloud-fill"></i> {{ _('Skincare Management') }}
                 </div>
-                <a href="{{ url_for('auth.forgot_password') }}" class="link-forgot">{{ _('¿Olvidaste tu contraseña?') }}</a>
+                <h2 class="visual-title" id="visual-tagline">{{ _('Tu inventario, tan claro como el cielo.') }}</h2>
+                <p class="visual-subtitle" id="visual-subtagline">
+                    {{ _('Controla lotes, vencimientos y movimientos sin nubarrones.') }}
+                </p>
+                <div class="visual-dots">
+                    <span class="visual-dot active"></span>
+                    <span class="visual-dot"></span>
+                    <span class="visual-dot"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════ PANEL FORMULARIO ══════ -->
+        <div class="login-form-panel">
+
+            <div class="top-controls">
+                <div class="top-controls-inner">
+                    <div class="lang-dropdown">
+                        <button type="button" class="lang-dropdown-toggle" onclick="toggleLangMenu()">
+                            <i class="bi bi-translate"></i>
+                            <span id="lang-current">
+                                {% if get_locale() == 'es' %}Español
+                                {% elif get_locale() == 'en' %}English
+                                {% elif get_locale() == 'fr' %}Français
+                                {% elif get_locale() == 'pt' %}Português
+                                {% else %}Español{% endif %}
+                            </span>
+                            <i class="bi bi-chevron-down" style="font-size:0.7rem;"></i>
+                        </button>
+                        <div class="lang-dropdown-menu" id="lang-menu">
+                            <a href="{{ url_for('lang.cambiar_idioma', codigo='es') }}"
+                               class="lang-option {% if get_locale() == 'es' %}active{% endif %}">Español</a>
+                            <a href="{{ url_for('lang.cambiar_idioma', codigo='en') }}"
+                               class="lang-option {% if get_locale() == 'en' %}active{% endif %}">English</a>
+                            <a href="{{ url_for('lang.cambiar_idioma', codigo='fr') }}"
+                               class="lang-option {% if get_locale() == 'fr' %}active{% endif %}">Français</a>
+                            <a href="{{ url_for('lang.cambiar_idioma', codigo='pt') }}"
+                               class="lang-option {% if get_locale() == 'pt' %}active{% endif %}">Português</a>
+                        </div>
+                    </div>
+
+                    <div class="theme-toggle">
+                        <button class="theme-toggle-btn" id="btn-light" onclick="setTheme('light')" title="{{ _('Modo claro') }}">
+                            <i class="bi bi-sun-fill"></i>
+                        </button>
+                        <button class="theme-toggle-btn" id="btn-dark" onclick="setTheme('dark')" title="{{ _('Modo oscuro') }}">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <button type="submit" class="btn-login">
-                {{ _('Iniciar sesión') }}
-            </button>
-        </form>
+            <div class="login-card">
 
-        <div class="login-footer">
-            {{ _('¿No tienes cuenta?') }}
-            <a href="{{ url_for('auth.register') }}">{{ _('Crear cuenta') }}</a>
+                <div class="login-header">
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24.5 14.5C24.5 12.01 22.49 10 20 10C19.38 10 18.79 10.13 18.25 10.36C17.42 8.39 15.46 7 13.17 7C10.04 7 7.5 9.54 7.5 12.67C7.5 12.78 7.5 12.89 7.51 13C6.07 13.35 5 14.65 5 16.2C5 17.99 6.46 19.45 8.25 19.45H10" stroke="#7B8FC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 13 C16 13 11 18.5 11 21.5 C11 24.09 13.24 26 16 26 C18.76 26 21 24.09 21 21.5 C21 18.5 16 13 16 13Z" fill="#7B8FC7"/>
+                            <path d="M13.5 21 C13.5 19.5 14.8 17.8 15.5 16.8" stroke="white" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <p class="brand-name">Nuée</p>
+                    <p class="brand-subtitle">{{ _('Inicia sesión para continuar') }}</p>
+                </div>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                <form method="POST" action="{{ url_for('auth.login') }}">
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        <label class="form-label">{{ _('Usuario o correo') }}</label>
+                        {{ form.username(class="form-control", placeholder=_('tu@correo.com')) }}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">{{ _('Contraseña') }}</label>
+                        {{ form.password(class="form-control", placeholder="••••••••") }}
+                    </div>
+
+                    <div class="login-extras">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                            <label class="form-check-label" for="remember">{{ _('Recordarme') }}</label>
+                        </div>
+                        <a href="{{ url_for('auth.forgot_password') }}" class="link-forgot">{{ _('¿Olvidaste tu contraseña?') }}</a>
+                    </div>
+
+                    <button type="submit" class="btn-login">
+                        <i class="bi bi-cloud-arrow-up"></i> {{ _('Iniciar sesión') }}
+                    </button>
+                </form>
+
+                <div class="divider-o">{{ _('o') }}</div>
+
+                <!-- ⚠️ Requiere ruta auth.google_login (backend OAuth pendiente) -->
+                <a href="#" class="btn-google">
+                    <svg viewBox="0 0 48 48">
+                        <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l5.7-5.7C34.9 6.1 29.8 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/>
+                        <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.9 18.9 13 24 13c3.1 0 5.8 1.1 8 3l5.7-5.7C34.9 6.1 29.8 4 24 4 16.3 4 9.6 8.3 6.3 14.7z"/>
+                        <path fill="#4CAF50" d="M24 44c5.7 0 10.8-2.2 14.7-5.7l-6.8-5.7C29.7 34.6 27 35.5 24 35.5c-5.2 0-9.6-3.3-11.2-7.9l-6.6 5.1C9.5 39.6 16.2 44 24 44z"/>
+                        <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.2 4.3-4.1 5.7l6.8 5.7C41.5 36 44 30.5 44 24c0-1.3-.1-2.7-.4-3.5z"/>
+                    </svg>
+                    {{ _('Ingresar con Google') }}
+                </a>
+
+                <div class="login-footer">
+                    {{ _('¿No tienes cuenta?') }}
+                    <a href="{{ url_for('auth.register') }}">{{ _('Crear cuenta') }}</a>
+                </div>
+            </div>
+
+            <div class="brand-footer">
+                Nuée © 2026 · An.creart
+            </div>
+
         </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -356,8 +701,52 @@
             document.getElementById('btn-dark').classList.toggle('active', theme === 'dark');
             if (save) localStorage.setItem('nuee_theme', theme);
         }
-        const savedTheme = localStorage.getItem('nuee_theme') || 'dark';
+        const savedTheme = localStorage.getItem('nuee_theme') || 'light';
         setTheme(savedTheme, false);
+
+        function toggleLangMenu() {
+            document.getElementById('lang-menu').classList.toggle('show');
+        }
+        document.addEventListener('click', function(e) {
+            const dropdown = document.querySelector('.lang-dropdown');
+            if (!dropdown.contains(e.target)) {
+                document.getElementById('lang-menu').classList.remove('show');
+            }
+        });
+
+        const taglines = [
+            {
+                title: "{{ _('Tu inventario, tan claro como el cielo.') }}",
+                sub:   "{{ _('Controla lotes, vencimientos y movimientos sin nubarrones.') }}"
+            },
+            {
+                title: "{{ _('Cada lote, bajo control.') }}",
+                sub:   "{{ _('Trazabilidad completa de tus productos skincare.') }}"
+            },
+            {
+                title: "{{ _('Belleza y orden en un mismo lugar.') }}",
+                sub:   "{{ _('Gestiona tu marca con la calma de un cielo despejado.') }}"
+            }
+        ];
+        let currentTagline = 0;
+        const titleEl = document.getElementById('visual-tagline');
+        const subEl   = document.getElementById('visual-subtagline');
+        const dots    = document.querySelectorAll('.visual-dot');
+
+        setInterval(() => {
+            currentTagline = (currentTagline + 1) % taglines.length;
+            titleEl.style.opacity = 0;
+            subEl.style.opacity   = 0;
+            setTimeout(() => {
+                titleEl.textContent = taglines[currentTagline].title;
+                subEl.textContent   = taglines[currentTagline].sub;
+                titleEl.style.transition = 'opacity 0.4s ease';
+                subEl.style.transition   = 'opacity 0.4s ease';
+                titleEl.style.opacity = 1;
+                subEl.style.opacity   = 1;
+            }, 300);
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentTagline));
+        }, 5000);
     </script>
 
 </body>
