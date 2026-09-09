@@ -30,7 +30,7 @@
             </ul>
           </div>
 
-          <form method="POST" action="{{ url_for('insumos.delete', id=insumo.id) }}">
+          <form method="POST" action="{{ url_for('insumos.delete_confirm', id=insumo.id) }}">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="d-flex gap-3">
               <button type="submit" class="btn btn-danger px-4">
