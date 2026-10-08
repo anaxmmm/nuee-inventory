@@ -1,4 +1,4 @@
-import random
+import secrets
 from datetime import datetime, timedelta
 from app.auth.models import Usuario
 from app.extensions import db, mail
@@ -18,7 +18,7 @@ def generar_token_reset(email):
     usuario = Usuario.query.filter_by(email=email, activo=True).first()
     if not usuario:
         return None
-    codigo = str(random.randint(100000, 999999))
+    codigo = f"{secrets.randbelow(1_000_000):06d}"
     usuario.reset_token        = codigo
     usuario.reset_token_expiry = datetime.utcnow() + timedelta(minutes=15)
     db.session.commit()
