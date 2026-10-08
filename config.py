@@ -15,6 +15,10 @@ class Config:
     SESSION_PERMANENT = False
     PERMANENT_SESSION_LIFETIME = timedelta(days=30)
 
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = 'Lax'
+    SESSION_COOKIE_SECURE   = os.environ.get('SESSION_COOKIE_SECURE', 'False') == 'True'
+
     MAIL_SERVER         = 'smtp.gmail.com'
     MAIL_PORT           = 587
     MAIL_USE_TLS        = True
