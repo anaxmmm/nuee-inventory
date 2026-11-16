@@ -1,4 +1,5 @@
-from flask import render_template, redirect, url_for, flash, session, request
+import secrets
+from flask import render_template, redirect, url_for, flash, session, request, current_app
 from . import auth_bp
 from .forms import LoginForm, RegisterForm, PerfilForm
 from .services import (
@@ -98,25 +99,27 @@ def logout():
 
 # ─── Recuperación de contraseña ──────────────────────────────────────────────
 
+MAX_INTENTOS_CODIGO = 5
+_intentos_codigo = {}
+
+
 @auth_bp.route("/forgot-password", methods=["GET", "POST"])
 def forgot_password():
     if request.method == "POST":
-        email   = request.form.get("email")
+        email   = (request.form.get("email") or "").strip()
         usuario = generar_token_reset(email)
         if usuario:
+            _intentos_codigo.pop(usuario.id, None)
             try:
                 enviar_email_reset(usuario, usuario.reset_token)
-                flash("Código enviado. Revisa tu correo.", "success")
-            except Exception as e:
-                from flask import current_app
+            except Exception:
+                current_app.logger.exception("No se pudo enviar el correo de recuperación")
                 if current_app.debug:
-                    flash(f"⚠️ Modo prueba — código: {usuario.reset_token}", "warning")
-                else:
-                    flash("Error al enviar el correo. Intenta más tarde.", "danger")
-            return redirect(url_for("auth.verify_code", email=email))
-        else:
-            flash("Si el correo existe, recibirás un código.", "success")
-            return redirect(url_for("auth.forgot_password"))
+                    current_app.logger.warning(
+                        "Código de recuperación para %s: %s", usuario.email, usuario.reset_token
+                    )
+        flash("Si el correo está registrado, recibirás un código.", "success")
+        return redirect(url_for("auth.verify_code", email=email))
     return render_template("auth/forgot_password.html")
 
 
@@ -125,23 +128,36 @@ def verify_code():
     email = request.args.get("email") or request.form.get("email")
     if request.method == "POST":
         codigo  = request.form.get("codigo", "").strip()
-        usuario = Usuario.query.filter_by(email=email, reset_token=codigo).first()
-        if not usuario or not usuario.token_valido():
-            flash("Código inválido o expirado.", "danger")
-            return render_template("auth/verify_code.html", email=email)
-        return redirect(url_for("auth.reset_password", token=codigo))
+        usuario = Usuario.query.filter_by(email=email, activo=True).first()
+        if usuario and usuario.token_valido() and secrets.compare_digest(usuario.reset_token, codigo):
+            _intentos_codigo.pop(usuario.id, None)
+            session["reset_user_id"] = usuario.id
+            return redirect(url_for("auth.reset_password", token=codigo))
+        if usuario and usuario.reset_token:
+            fallos = _intentos_codigo.get(usuario.id, 0) + 1
+            if fallos >= MAX_INTENTOS_CODIGO:
+                usuario.reset_token        = None
+                usuario.reset_token_expiry = None
+                db.session.commit()
+                _intentos_codigo.pop(usuario.id, None)
+                flash("Demasiados intentos. Solicita un código nuevo.", "danger")
+                return redirect(url_for("auth.forgot_password"))
+            _intentos_codigo[usuario.id] = fallos
+        flash("Código inválido o expirado.", "danger")
+        return render_template("auth/verify_code.html", email=email)
     return render_template("auth/verify_code.html", email=email)
 
 
 @auth_bp.route("/reset-password/<token>", methods=["GET", "POST"])
 def reset_password(token):
     usuario = Usuario.query.filter_by(reset_token=token).first()
-    if not usuario or not usuario.token_valido():
+    if (not usuario or not usuario.token_valido()
+            or session.get("reset_user_id") != usuario.id):
         flash("El código es inválido o expiró. Solicita uno nuevo.", "danger")
         return redirect(url_for("auth.forgot_password"))
     if request.method == "POST":
-        nueva     = request.form.get("password")
-        confirmar = request.form.get("confirm_password")
+        nueva     = request.form.get("password") or ""
+        confirmar = request.form.get("confirm_password") or ""
         if nueva != confirmar:
             flash("Las contraseñas no coinciden", "danger")
             return redirect(url_for("auth.reset_password", token=token))
@@ -149,9 +165,12 @@ def reset_password(token):
             flash("La contraseña debe tener al menos 6 caracteres", "danger")
             return redirect(url_for("auth.reset_password", token=token))
         resetear_password_con_token(token, nueva)
+        session.pop("reset_user_id", None)
         flash("Contraseña actualizada. Ya puedes iniciar sesión.", "success")
         return redirect(url_for("auth.login"))
     return render_template("auth/reset_password.html", token=token)
+
+
 # ─── Perfil ──────────────────────────────────────────────────────────────────
 
 @auth_bp.route("/perfil", methods=["GET", "POST"])
