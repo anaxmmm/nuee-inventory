@@ -10,9 +10,11 @@ from app.clienteproveedor.services import (
     eliminar_cliente
 )
 from app.clienteproveedor import clienteproveedor_bp
+from app.auth.routes import login_required
 
 
 @clienteproveedor_bp.route("/")
+@login_required
 def index():
     clientes = listar_clientes()
     form = ClienteProveedorForm()
@@ -20,6 +22,7 @@ def index():
 
 
 @clienteproveedor_bp.route("/crear", methods=["POST"])
+@login_required
 def crear():
     form = ClienteProveedorForm()
     if form.validate_on_submit():
@@ -46,6 +49,7 @@ def crear():
 
 
 @clienteproveedor_bp.route("/editar/<int:id>", methods=["GET", "POST"])
+@login_required
 def editar(id):
     cliente = obtener_cliente(id)
     if not cliente:
@@ -75,6 +79,7 @@ def editar(id):
 
 
 @clienteproveedor_bp.route("/eliminar/<int:id>", methods=["POST"])
+@login_required
 def eliminar(id):
     try:
         eliminar_cliente(id)
@@ -86,6 +91,7 @@ def eliminar(id):
 # === API ===
 
 @clienteproveedor_bp.route("/api/clientes")
+@login_required
 def api_listar_clientes():
     clientes = listar_clientes()
     return jsonify([{
@@ -95,6 +101,7 @@ def api_listar_clientes():
 
 
 @clienteproveedor_bp.route("/api/clientes/buscar")
+@login_required
 def api_buscar_clientes():
     query = request.args.get('q', '')
     clientes = buscar_clientes(query)
@@ -105,6 +112,7 @@ def api_buscar_clientes():
 
 
 @clienteproveedor_bp.route("/api/clientes/nit/<nit>")
+@login_required
 def api_cliente_por_nit(nit):
     cliente = obtener_cliente_por_nit(nit)
     if not cliente:

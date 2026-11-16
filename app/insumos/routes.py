@@ -101,6 +101,7 @@ def delete_confirm(id):
 # === API ===
 
 @insumos_bp.route('/api/insumos')
+@login_required
 def api_listar_insumos():
     insumos = listar_todos_insumos()
     return jsonify([{
@@ -113,6 +114,7 @@ def api_listar_insumos():
 
 
 @insumos_bp.route('/api/insumos/buscar')
+@login_required
 def api_buscar_insumos():
     query   = request.args.get('q', '')
     insumos = buscar_insumos(query)
@@ -126,6 +128,7 @@ def api_buscar_insumos():
 
 
 @insumos_bp.route('/api/insumos/codigo/<codigo>')
+@login_required
 def api_insumo_por_codigo(codigo):
     insumo = obtener_insumo_por_codigo(codigo)
     if not insumo:

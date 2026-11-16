@@ -69,6 +69,7 @@ def eliminar(id):
 # === API ===
 
 @movimientos_bp.route("/api/clientes")
+@login_required
 def api_listar_clientes():
     clientes = listar_clientes()
     return jsonify([{"id": c.id, "nit": c.nit, "nombre": c.nombre,
@@ -77,6 +78,7 @@ def api_listar_clientes():
 
 
 @movimientos_bp.route("/api/clientes/buscar")
+@login_required
 def api_buscar_clientes():
     query    = request.args.get('q', '')
     clientes = buscar_clientes(query)
@@ -86,6 +88,7 @@ def api_buscar_clientes():
 
 
 @movimientos_bp.route("/api/clientes/nit/<nit>")
+@login_required
 def api_cliente_por_nit(nit):
     cliente = obtener_cliente_por_nit(nit)
     if not cliente:
@@ -95,6 +98,7 @@ def api_cliente_por_nit(nit):
 
 
 @movimientos_bp.route("/api/insumos")
+@login_required
 def api_listar_insumos():
     insumos = listar_insumos_activos()
     return jsonify([{
@@ -111,6 +115,7 @@ def api_listar_insumos():
 
 
 @movimientos_bp.route("/api/insumos/buscar")
+@login_required
 def api_buscar_insumos():
     query   = request.args.get('q', '')
     insumos = buscar_insumos(query)
@@ -128,6 +133,7 @@ def api_buscar_insumos():
 
 
 @movimientos_bp.route("/api/insumos/codigo/<codigo>")
+@login_required
 def api_insumo_por_codigo(codigo):
     insumo = obtener_insumo_por_codigo(codigo)
     if not insumo:
