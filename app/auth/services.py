@@ -41,11 +41,11 @@ def enviar_email_reset(usuario, codigo):
         html       = f"""
         <div style="font-family:Arial,sans-serif;max-width:480px;margin:auto;
                     padding:32px;border-radius:12px;border:1px solid #e5e7eb;">
-          <h2 style="color:#2563eb;">🔐 Recuperar contraseña</h2>
+          <h2 style="color:#5A72AE;">Recuperar contraseña</h2>
           <p>Hola <strong>{usuario.nombre or usuario.username}</strong>,</p>
           <p>Tu código de recuperación es:</p>
           <div style="font-size:2.5rem;font-weight:700;letter-spacing:12px;
-                      color:#2563eb;text-align:center;margin:24px 0;">
+                      color:#5A72AE;text-align:center;margin:24px 0;">
             {codigo}
           </div>
           <p>Este código expira en <strong>15 minutos</strong>.</p>

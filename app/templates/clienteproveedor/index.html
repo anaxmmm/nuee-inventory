@@ -22,21 +22,21 @@
             <div class="stat-card">
                 <div class="stat-label">{{ _('Total Contactos') }}</div>
                 <div class="stat-value">
-                    {{ (clientes|selectattr("tipo", "equalto", "C")|list|length) +
-                       (clientes|selectattr("tipo", "equalto", "P")|list|length) }}
+                    {{ (clientes|selectattr("tipo", "in", ["C", "Cliente"])|list|length) +
+                       (clientes|selectattr("tipo", "in", ["P", "Proveedor"])|list|length) }}
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="stat-card success">
                 <div class="stat-label">{{ _('Clientes') }}</div>
-                <div class="stat-value">{{ clientes|selectattr("tipo", "equalto", "C")|list|length }}</div>
+                <div class="stat-value">{{ clientes|selectattr("tipo", "in", ["C", "Cliente"])|list|length }}</div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="stat-card warning">
                 <div class="stat-label">{{ _('Proveedores') }}</div>
-                <div class="stat-value">{{ clientes|selectattr("tipo", "equalto", "P")|list|length }}</div>
+                <div class="stat-value">{{ clientes|selectattr("tipo", "in", ["P", "Proveedor"])|list|length }}</div>
             </div>
         </div>
     </div>
@@ -83,9 +83,9 @@
                             <td>{{ cliente.direccion or '-' }}</td>
                             <td>{{ cliente.celular or '-' }}</td>
                             <td>
-                                {% if cliente.tipo == 'C' %}
+                                {% if cliente.tipo in ('C', 'Cliente') %}
                                 <span class="badge-soft bg-primary-subtle text-primary">{{ _('Cliente') }}</span>
-                                {% elif cliente.tipo == 'P' %}
+                                {% elif cliente.tipo in ('P', 'Proveedor') %}
                                 <span class="badge-soft bg-warning-subtle text-warning">{{ _('Proveedor') }}</span>
                                 {% else %}
                                 <span class="badge-soft bg-secondary-subtle text-secondary">{{ cliente.tipo }}</span>

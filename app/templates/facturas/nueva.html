@@ -329,9 +329,9 @@ function renderDropdown(lista) {
             <div class="small text-muted">
               ${c.tipo_identificacion || 'NIT'}: ${c.nit}
               &nbsp;·&nbsp;
-              <span class="badge ${c.tipo === 'C' ? 'bg-success' : 'bg-warning text-dark'}"
+              <span class="badge ${['C', 'Cliente'].includes(c.tipo) ? 'bg-success' : 'bg-warning text-dark'}"
                     style="font-size:0.65rem;">
-                ${c.tipo === 'C' ? '{{ _("Cliente") }}' : '{{ _("Proveedor") }}'}
+                ${['C', 'Cliente'].includes(c.tipo) ? '{{ _("Cliente") }}' : '{{ _("Proveedor") }}'}
               </span>
             </div>
           </div>

@@ -194,7 +194,7 @@ def seed():
         # Verificar que no haya insumos antes de insertar
         existentes = Insumo.query.count()
         if existentes > 0:
-            print(f"⚠️  Ya existen {existentes} insumos en la base de datos.")
+            print(f"Ya existen {existentes} insumos en la base de datos.")
             print("   Ejecuta primero el script SQL de limpieza y vuelve a correr este seed.")
             return
 
@@ -217,11 +217,11 @@ def seed():
                 creado_por        = "admin",
             )
             db.session.add(insumo)
-            print(f"  ✓ {p['codigo']} — {p['descripcion'][:50]}")
+            print(f"  {p['codigo']} — {p['descripcion'][:50]}")
             print(f"       Costo: ${p['costo']:,}  →  Venta: ${precio_venta:,.2f}  |  IVA: {p['iva']}%")
 
         db.session.commit()
-        print(f"\n✅ {len(PRODUCTOS)} productos insertados correctamente.")
+        print(f"\n{len(PRODUCTOS)} productos insertados correctamente.")
         print("   Stock: 100 uds. por producto | IVA: 19% | Registrado por: admin")
 
 

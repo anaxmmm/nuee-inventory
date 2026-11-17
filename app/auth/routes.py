@@ -9,7 +9,6 @@ from .services import (
 )
 from .models import Usuario
 from app.extensions import db
-from sqlalchemy import text
 from functools import wraps
 
 
@@ -272,16 +271,7 @@ def admin_usuarios():
 @auth_bp.route("/admin/usuarios/<int:id>/reset", methods=["POST"])
 @admin_required
 def admin_reset_password(id):
-    import secrets
     nueva = secrets.token_urlsafe(8)
     resetear_password_admin(id, nueva)
     flash(f"Contraseña reseteada. Nueva contraseña temporal: {nueva}", "success")
     return redirect(url_for("auth.admin_usuarios"))
-
-
-# ─── Test DB ─────────────────────────────────────────────────────────────────
-
-@auth_bp.route("/test-db")
-def test_db():
-    result = db.session.execute(text("SELECT DB_NAME()")).scalar()
-    return f"Base conectada: {result}"

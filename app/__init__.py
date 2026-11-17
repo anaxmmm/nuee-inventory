@@ -1,6 +1,8 @@
+import os
+import secrets
 from flask import Flask, request, session, Blueprint, redirect
 from app.extensions import db, migrate, mail, csrf, babel
-from config import DevelopmentConfig
+from config import CONFIGS
 
 
 def get_locale():
@@ -24,9 +26,19 @@ def cambiar_idioma(codigo):
     return redirect(request.referrer or '/')
 
 
-def create_app(config_class=DevelopmentConfig):
+def create_app(config_class=None):
+    if config_class is None:
+        entorno = os.environ.get("FLASK_ENV", "development")
+        config_class = CONFIGS.get(entorno, CONFIGS["development"])
+
     app = Flask(__name__)
     app.config.from_object(config_class)
+
+    if not app.config.get("SECRET_KEY"):
+        if not app.debug:
+            raise RuntimeError("Falta SECRET_KEY: defínela en el archivo .env o en las variables del servidor.")
+        app.config["SECRET_KEY"] = secrets.token_hex(32)
+        app.logger.warning("SECRET_KEY no está definida; se usa una clave temporal de desarrollo.")
 
     db.init_app(app)
     migrate.init_app(app, db)

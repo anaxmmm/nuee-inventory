@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nuee 1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-04 03:49-0500\n"
+"POT-Creation-Date: 2026-11-16 19:48-0500\n"
 "PO-Revision-Date: 2026-06-04 03:49-0500\n"
 "Last-Translator: Ana <ana@nuee.com>\n"
 "Language: en\n"
@@ -16,83 +16,382 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app/templates/base.html:771
+#: app/auth/forms.py:8 app/templates/auth/admin_usuarios.html:23
+#: app/templates/auth/configuracion.html:24 app/templates/auth/perfil.html:34
+msgid "Usuario"
+msgstr "Username"
+
+#: app/auth/forms.py:9 app/auth/forms.py:20
+#: app/templates/auth/register.html:470 app/templates/login.html:615
+msgid "Contraseña"
+msgstr "Password"
+
+#: app/auth/forms.py:10
+msgid "Ingresar"
+msgstr "Sign in"
+
+#: app/auth/forms.py:14 app/auth/forms.py:30
+#: app/templates/auth/register.html:455
+msgid "Nombre completo"
+msgstr "Full name"
+
+#: app/auth/forms.py:16 app/auth/forms.py:32
+#: app/templates/auth/forgot_password.html:448
+#: app/templates/auth/register.html:460
+msgid "Correo electrónico"
+msgstr "Email address"
+
+#: app/auth/forms.py:18 app/templates/auth/register.html:465
+msgid "Nombre de usuario"
+msgstr "Username"
+
+#: app/auth/forms.py:22 app/templates/auth/register.html:475
+#: app/templates/auth/reset_password.html:454
+msgid "Confirmar contraseña"
+msgstr "Confirm password"
+
+#: app/auth/forms.py:25 app/auth/forms.py:39
+msgid "Las contraseñas no coinciden"
+msgstr "Passwords do not match"
+
+#: app/auth/forms.py:26 app/templates/auth/admin_crear_usuario.html:66
+msgid "Crear usuario"
+msgstr "Create user"
+
+#: app/auth/forms.py:34
+msgid "Nueva contraseña (opcional)"
+msgstr "New password (optional)"
+
+#: app/auth/forms.py:36
+msgid "Confirmar nueva contraseña"
+msgstr "Confirm new password"
+
+#: app/auth/forms.py:40
+msgid "Guardar cambios"
+msgstr "Save changes"
+
+#: app/clienteproveedor/forms.py:10
+#: app/templates/clienteproveedor/create.html:44
+#: app/templates/clienteproveedor/edit.html:21
+#: app/templates/facturas/nueva.html:67 app/templates/facturas/nueva.html:219
+msgid "Tipo de Identificación"
+msgstr "ID Type"
+
+#: app/clienteproveedor/forms.py:13
+msgid "Cédula de Ciudadanía (CC)"
+msgstr "National ID (CC)"
+
+#: app/clienteproveedor/forms.py:14
+msgid "Cédula de Extranjería (CE)"
+msgstr "Foreign ID (CE)"
+
+#: app/clienteproveedor/forms.py:15
+#: app/templates/clienteproveedor/create.html:49
+msgid "Pasaporte (PP)"
+msgstr "Passport (PP)"
+
+#: app/clienteproveedor/forms.py:21 app/templates/clienteproveedor/edit.html:35
+#: app/templates/facturas/nueva.html:78 app/templates/facturas/nueva.html:229
+msgid "Número de Identificación"
+msgstr "ID Number"
+
+#: app/clienteproveedor/forms.py:22
+msgid "El número de identificación es obligatorio"
+msgstr "ID number is required"
+
+#: app/clienteproveedor/forms.py:27
+#: app/templates/clienteproveedor/create.html:76
+#: app/templates/facturas/nueva.html:248
+msgid "Nombre / Razón Social"
+msgstr "Name / Business Name"
+
+#: app/clienteproveedor/forms.py:28
+msgid "El nombre es obligatorio"
+msgstr "Name is required"
+
+#: app/clienteproveedor/forms.py:33
+#: app/templates/clienteproveedor/create.html:86
+#: app/templates/clienteproveedor/edit.html:50
+#: app/templates/clienteproveedor/index.html:69
+#: app/templates/facturas/nueva.html:87 app/templates/facturas/nueva.html:265
+msgid "Dirección"
+msgstr "Address"
+
+#: app/clienteproveedor/forms.py:38
+#: app/templates/clienteproveedor/create.html:95
+#: app/templates/clienteproveedor/index.html:70
+#: app/templates/facturas/nueva.html:255
+msgid "Celular"
+msgstr "Phone"
+
+#: app/clienteproveedor/forms.py:43
+#: app/templates/clienteproveedor/create.html:104
+#: app/templates/clienteproveedor/edit.html:63
+#: app/templates/facturas/nueva.html:95 app/templates/facturas/nueva.html:271
+msgid "Correo Electrónico"
+msgstr "Email address"
+
+#: app/clienteproveedor/forms.py:44
+msgid "Ingresa un correo válido"
+msgstr "Enter a valid email"
+
+#: app/clienteproveedor/forms.py:48
+#: app/templates/clienteproveedor/create.html:16
+#: app/templates/clienteproveedor/index.html:137
+msgid "Tipo de Contacto"
+msgstr "Contact Type"
+
+#: app/clienteproveedor/forms.py:49 app/facturas/forms.py:9
+#: app/movimientos/forms.py:10 app/templates/clienteproveedor/create.html:23
+#: app/templates/clienteproveedor/edit.html:78
+#: app/templates/clienteproveedor/index.html:87
+#: app/templates/clienteproveedor/index.html:143
+#: app/templates/facturas/index.html:59 app/templates/facturas/nueva.html:239
+#: app/templates/facturas/nueva.html:334
+#: app/templates/movimientos/create.html:12
+msgid "Cliente"
+msgstr "Client"
+
+#: app/clienteproveedor/forms.py:49
+#: app/templates/clienteproveedor/create.html:30
+#: app/templates/clienteproveedor/edit.html:84
+#: app/templates/clienteproveedor/index.html:89
+#: app/templates/clienteproveedor/index.html:150
+#: app/templates/facturas/nueva.html:240 app/templates/facturas/nueva.html:334
+#: app/templates/lotes/create.html:34 app/templates/lotes/index.html:70
+msgid "Proveedor"
+msgstr "Supplier"
+
+#: app/facturas/forms.py:10 app/movimientos/forms.py:11
+msgid "Seleccione un cliente"
+msgstr "Select a client"
+
+#: app/facturas/forms.py:13 app/movimientos/forms.py:46
+#: app/templates/facturas/nueva.html:103
+#: app/templates/movimientos/create.html:149
+#: app/templates/movimientos/edit.html:54
+msgid "Observaciones"
+msgstr "Notes"
+
+#: app/facturas/forms.py:16
+msgid "Crear Factura"
+msgstr "Create invoice"
+
+#: app/insumos/forms.py:9 app/templates/facturas/index.html:57
+#: app/templates/insumos/create.html:23 app/templates/insumos/delete.html:22
+#: app/templates/insumos/edit.html:23 app/templates/insumos/index.html:90
+msgid "Código"
+msgstr "Code"
+
+#: app/insumos/forms.py:11
+msgid "El código es obligatorio"
+msgstr "Code is required"
+
+#: app/insumos/forms.py:17 app/templates/insumos/delete.html:25
+#: app/templates/insumos/index.html:91
+msgid "Descripción"
+msgstr "Description"
+
+#: app/insumos/forms.py:19
+msgid "La descripción es obligatoria"
+msgstr "Description is required"
+
+#: app/insumos/forms.py:25 app/templates/insumos/create.html:37
+#: app/templates/insumos/edit.html:34 app/templates/insumos/index.html:92
+msgid "Lote"
+msgstr "Batch"
+
+#: app/insumos/forms.py:27
+msgid "El lote es obligatorio"
+msgstr "Batch is required"
+
+#: app/insumos/forms.py:33
+msgid "Registro INVIMA"
+msgstr "INVIMA registration"
+
+#: app/insumos/forms.py:41 app/templates/insumos/index.html:94
+msgid "Valor"
+msgstr "Price"
+
+#: app/insumos/forms.py:43
+msgid "El valor es obligatorio"
+msgstr "Price is required"
+
+#: app/insumos/forms.py:50 app/templates/facturas/nueva.html:148
+#: app/templates/insumos/create.html:111 app/templates/insumos/edit.html:99
+#, python-format
+msgid "IVA %%"
+msgstr "VAT %%"
+
+#: app/insumos/forms.py:60 app/movimientos/forms.py:32
+#: app/templates/facturas/nueva.html:146 app/templates/lotes/create.html:47
+#: app/templates/lotes/index.html:71 app/templates/main/dashboard.html:248
+#: app/templates/movimientos/create.html:375
+#: app/templates/movimientos/edit.html:28
+msgid "Cantidad"
+msgstr "Quantity"
+
+#: app/insumos/forms.py:62
+msgid "La cantidad es obligatoria"
+msgstr "Quantity is required"
+
+#: app/insumos/forms.py:63
+msgid "La cantidad no puede ser negativa"
+msgstr "Quantity cannot be negative"
+
+#: app/insumos/forms.py:69 app/templates/insumos/create.html:153
+msgid "Stock Mínimo"
+msgstr "Minimum Stock"
+
+#: app/insumos/forms.py:71
+msgid "El stock mínimo es obligatorio"
+msgstr "Minimum stock is required"
+
+#: app/insumos/forms.py:72
+msgid "El stock mínimo no puede ser negativo"
+msgstr "Minimum stock cannot be negative"
+
+#: app/insumos/forms.py:78 app/templates/insumos/create.html:85
+#: app/templates/insumos/edit.html:76 app/templates/lotes/create.html:79
+msgid "Fecha de Vencimiento"
+msgstr "Expiration Date"
+
+#: app/insumos/forms.py:83 app/templates/auth/admin_usuarios.html:45
+#: app/templates/auth/configuracion.html:46
+#: app/templates/insumos/index.html:159
+msgid "Activo"
+msgstr "Active"
+
+#: app/insumos/forms.py:85
+msgid "Guardar"
+msgstr "Save"
+
+#: app/movimientos/forms.py:14
+msgid "Insumo"
+msgstr "Product"
+
+#: app/movimientos/forms.py:15
+msgid "Seleccione un insumo"
+msgstr "Select a product"
+
+#: app/movimientos/forms.py:18 app/templates/movimientos/create.html:124
+#: app/templates/movimientos/edit.html:35
+msgid "Tipo de operación"
+msgstr "Operation type"
+
+#: app/movimientos/forms.py:20 app/templates/movimientos/create.html:126
+#: app/templates/movimientos/edit.html:38
+msgid "Venta (Salida)"
+msgstr "Sale (Outbound)"
+
+#: app/movimientos/forms.py:21 app/templates/movimientos/create.html:127
+#: app/templates/movimientos/edit.html:40
+msgid "Compra (Entrada)"
+msgstr "Purchase (Inbound)"
+
+#: app/movimientos/forms.py:22 app/templates/movimientos/create.html:128
+#: app/templates/movimientos/edit.html:42
+#: app/templates/movimientos/index.html:84
+msgid "Devolución"
+msgstr "Return"
+
+#: app/movimientos/forms.py:27
+msgid "Precio unitario"
+msgstr "Unit price"
+
+#: app/movimientos/forms.py:37 app/templates/movimientos/create.html:134
+msgid "N° Comprobante"
+msgstr "Receipt No."
+
+#: app/movimientos/forms.py:41 app/templates/movimientos/create.html:144
+msgid "Vencimiento del lote"
+msgstr "Batch expiration"
+
+#: app/movimientos/forms.py:49 app/templates/movimientos/create.html:182
+msgid "Guardar Movimiento"
+msgstr "Save Movement"
+
+#: app/templates/base.html:808 app/templates/login.html:527
 msgid "Skincare Management"
 msgstr "Skincare Management"
 
-#: app/templates/base.html:776
+#: app/templates/base.html:813
 msgid "Principal"
 msgstr "Main"
 
-#: app/templates/base.html:783
+#: app/templates/base.html:820
 msgid "Inventario"
 msgstr "Inventory"
 
-#: app/templates/base.html:787 app/templates/facturas/nueva.html:133
+#: app/templates/base.html:824 app/templates/facturas/nueva.html:133
 #: app/templates/insumos/index.html:2 app/templates/movimientos/create.html:15
 #: app/templates/movimientos/create.html:80
 msgid "Productos"
 msgstr "Products"
 
-#: app/templates/base.html:792 app/templates/movimientos/index.html:2
+#: app/templates/base.html:829 app/templates/movimientos/index.html:2
 msgid "Movimientos"
 msgstr "Movements"
 
-#: app/templates/base.html:795
+#: app/templates/base.html:832
 msgid "Ventas"
 msgstr "Sales"
 
-#: app/templates/base.html:799 app/templates/facturas/index.html:2
+#: app/templates/base.html:836 app/templates/facturas/index.html:2
 #: app/templates/facturas/index.html:3
 msgid "Facturas"
 msgstr "Invoices"
 
-#: app/templates/base.html:802
+#: app/templates/base.html:839
 msgid "Contactos"
 msgstr "Contacts"
 
-#: app/templates/base.html:806 app/templates/clienteproveedor/index.html:2
+#: app/templates/base.html:843 app/templates/clienteproveedor/index.html:2
 msgid "Clientes / Proveedores"
 msgstr "Clients / Suppliers"
 
-#: app/templates/base.html:819
+#: app/templates/base.html:854
+msgid "Abrir menú"
+msgstr "Open menu"
+
+#: app/templates/base.html:863
 msgid "Cambiar tema"
 msgstr "Switch theme"
 
-#: app/templates/auth/forgot_password.html:188
-#: app/templates/auth/register.html:222
-#: app/templates/auth/reset_password.html:186
-#: app/templates/auth/verify_code.html:190 app/templates/base.html:821
-#: app/templates/login.html:306
+#: app/templates/auth/forgot_password.html:410
+#: app/templates/auth/register.html:419
+#: app/templates/auth/reset_password.html:410
+#: app/templates/auth/verify_code.html:414 app/templates/base.html:865
+#: app/templates/login.html:571
 msgid "Modo claro"
 msgstr "Light mode"
 
-#: app/templates/auth/forgot_password.html:191
-#: app/templates/auth/register.html:225
-#: app/templates/auth/reset_password.html:189
-#: app/templates/auth/verify_code.html:193 app/templates/base.html:825
-#: app/templates/login.html:309
+#: app/templates/auth/forgot_password.html:413
+#: app/templates/auth/register.html:422
+#: app/templates/auth/reset_password.html:413
+#: app/templates/auth/verify_code.html:417 app/templates/base.html:869
+#: app/templates/login.html:574
 msgid "Modo oscuro"
 msgstr "Dark mode"
 
-#: app/templates/base.html:841
+#: app/templates/base.html:885
 msgid "Administrador"
 msgstr "Administrator"
 
-#: app/templates/base.html:848
+#: app/templates/base.html:892
 msgid "Perfil"
 msgstr "Profile"
 
 #: app/templates/auth/configuracion.html:2
-#: app/templates/auth/configuracion.html:3 app/templates/base.html:854
+#: app/templates/auth/configuracion.html:3 app/templates/base.html:898
 msgid "Configuración"
 msgstr "Settings"
 
-#: app/templates/base.html:862
+#: app/templates/base.html:906
 msgid "Idioma"
 msgstr "Language"
 
-#: app/templates/base.html:882
+#: app/templates/base.html:926
 msgid "Cerrar sesión"
 msgstr "Log out"
 
@@ -100,42 +399,62 @@ msgstr "Log out"
 msgid "Nuée — Iniciar Sesión"
 msgstr "Nuée — Sign In"
 
-#: app/templates/login.html:325
+#: app/templates/login.html:529 app/templates/login.html:670
+msgid "Tu inventario, tan claro como el cielo."
+msgstr "Your inventory, as clear as the sky."
+
+#: app/templates/login.html:531 app/templates/login.html:671
+msgid "Controla lotes, vencimientos y movimientos sin nubarrones."
+msgstr "Keep batches, expiration dates and movements free of clouds."
+
+#: app/templates/login.html:592
 msgid "Inicia sesión para continuar"
 msgstr "Sign in to continue"
 
-#: app/templates/login.html:343
+#: app/templates/login.html:610
 msgid "Usuario o correo"
 msgstr "Username or email"
 
-#: app/templates/auth/forgot_password.html:220
-#: app/templates/auth/perfil.html:59 app/templates/login.html:344
+#: app/templates/auth/forgot_password.html:449
+#: app/templates/auth/perfil.html:59 app/templates/login.html:611
 msgid "tu@correo.com"
 msgstr "your@email.com"
 
-#: app/templates/auth/register.html:261 app/templates/login.html:348
-msgid "Contraseña"
-msgstr "Password"
-
-#: app/templates/login.html:355
+#: app/templates/login.html:622
 msgid "Recordarme"
 msgstr "Remember me"
 
-#: app/templates/login.html:357
+#: app/templates/login.html:624
 msgid "¿Olvidaste tu contraseña?"
 msgstr "Forgot your password?"
 
-#: app/templates/login.html:361
+#: app/templates/login.html:628
 msgid "Iniciar sesión"
 msgstr "Sign in"
 
-#: app/templates/login.html:366
+#: app/templates/login.html:633
 msgid "¿No tienes cuenta?"
 msgstr "Don't have an account?"
 
-#: app/templates/auth/register.html:269 app/templates/login.html:367
+#: app/templates/auth/register.html:480 app/templates/login.html:634
 msgid "Crear cuenta"
 msgstr "Create account"
+
+#: app/templates/login.html:674
+msgid "Cada lote, bajo control."
+msgstr "Every batch, under control."
+
+#: app/templates/login.html:675
+msgid "Trazabilidad completa de tus productos skincare."
+msgstr "Full traceability for your skincare products."
+
+#: app/templates/auth/register.html:407 app/templates/login.html:678
+msgid "Belleza y orden en un mismo lugar."
+msgstr "Beauty and order in one place."
+
+#: app/templates/auth/register.html:409 app/templates/login.html:679
+msgid "Gestiona tu marca con la calma de un cielo despejado."
+msgstr "Run your brand with the calm of a clear sky."
 
 #: app/templates/auth/admin_crear_usuario.html:2
 #: app/templates/auth/admin_crear_usuario.html:3
@@ -165,20 +484,16 @@ msgid "Ej: anagarcia"
 msgstr "Ex: anagarcia"
 
 #: app/templates/auth/admin_crear_usuario.html:50
-#: app/templates/auth/register.html:262
-#: app/templates/auth/reset_password.html:219
+#: app/templates/auth/register.html:471
+#: app/templates/auth/reset_password.html:450
 msgid "Mínimo 6 caracteres"
 msgstr "Minimum 6 characters"
 
 #: app/templates/auth/admin_crear_usuario.html:58
-#: app/templates/auth/register.html:266
-#: app/templates/auth/reset_password.html:224
+#: app/templates/auth/register.html:476
+#: app/templates/auth/reset_password.html:456
 msgid "Repite la contraseña"
 msgstr "Repeat password"
-
-#: app/templates/auth/admin_crear_usuario.html:66
-msgid "Crear usuario"
-msgstr "Create user"
 
 #: app/templates/auth/admin_crear_usuario.html:69
 #: app/templates/auth/perfil.html:90
@@ -215,11 +530,6 @@ msgstr "Registered users"
 msgid "ID"
 msgstr "ID"
 
-#: app/templates/auth/admin_usuarios.html:23
-#: app/templates/auth/configuracion.html:24 app/templates/auth/perfil.html:34
-msgid "Usuario"
-msgstr "Username"
-
 #: app/templates/auth/admin_usuarios.html:24
 #: app/templates/auth/configuracion.html:25
 #: app/templates/clienteproveedor/index.html:68
@@ -250,12 +560,6 @@ msgstr "Status"
 #: app/templates/lotes/index.html:75 app/templates/movimientos/index.html:70
 msgid "Acciones"
 msgstr "Actions"
-
-#: app/templates/auth/admin_usuarios.html:45
-#: app/templates/auth/configuracion.html:46
-#: app/templates/insumos/index.html:159
-msgid "Activo"
-msgstr "Active"
 
 #: app/templates/auth/admin_usuarios.html:45
 #: app/templates/auth/configuracion.html:46
@@ -305,26 +609,33 @@ msgstr "Activate"
 msgid "Tu cuenta"
 msgstr "Your account"
 
-#: app/templates/auth/forgot_password.html:5
+#: app/templates/auth/forgot_password.html:6
 msgid "Nuée — Recuperar contraseña"
 msgstr "Nuée — Reset Password"
 
-#: app/templates/auth/forgot_password.html:202
-msgid "Te enviaremos un código de 6 dígitos"
-msgstr "We'll send you a 6-digit code"
+#: app/templates/auth/forgot_password.html:396
+msgid "Recuperar contraseña"
+msgstr "Reset password"
 
-#: app/templates/auth/forgot_password.html:219
-#: app/templates/auth/register.html:253
-msgid "Correo electrónico"
-msgstr "Email address"
+#: app/templates/auth/forgot_password.html:398
+msgid "¿Perdiste tu contraseña?"
+msgstr "Lost your password?"
 
-#: app/templates/auth/forgot_password.html:223
+#: app/templates/auth/forgot_password.html:400
+msgid "Te enviaremos un código de 6 dígitos a tu correo para restablecerla."
+msgstr "We'll send a 6-digit code to your email so you can reset it."
+
+#: app/templates/auth/forgot_password.html:430
+msgid "Ingresa tu correo registrado"
+msgstr "Enter your registered email"
+
+#: app/templates/auth/forgot_password.html:453
 msgid "Enviar código"
 msgstr "Send code"
 
-#: app/templates/auth/forgot_password.html:228
-#: app/templates/auth/register.html:274
-#: app/templates/auth/reset_password.html:233
+#: app/templates/auth/forgot_password.html:458
+#: app/templates/auth/register.html:485
+#: app/templates/auth/reset_password.html:465
 msgid "Volver al login"
 msgstr "Back to login"
 
@@ -356,68 +667,80 @@ msgstr "New password (minimum 6 characters)"
 msgid "Repite la nueva contraseña"
 msgstr "Repeat new password"
 
-#: app/templates/auth/register.html:5
+#: app/templates/auth/register.html:6
 msgid "Nuée — Crear cuenta"
 msgstr "Nuée — Create Account"
 
-#: app/templates/auth/register.html:236
+#: app/templates/auth/register.html:405
+msgid "Bienvenido a Nuée"
+msgstr "Welcome to Nuée"
+
+#: app/templates/auth/register.html:439
 msgid "Crear nueva cuenta"
 msgstr "Create new account"
 
-#: app/templates/auth/register.html:249
-msgid "Nombre completo"
-msgstr "Full name"
-
-#: app/templates/auth/register.html:250
+#: app/templates/auth/register.html:456
 msgid "Ana María García"
 msgstr "Ana María García"
 
-#: app/templates/auth/register.html:254
+#: app/templates/auth/register.html:461
 msgid "ana@correo.com"
 msgstr "ana@email.com"
 
-#: app/templates/auth/register.html:257
-msgid "Nombre de usuario"
-msgstr "Username"
-
-#: app/templates/auth/register.html:265
-#: app/templates/auth/reset_password.html:222
-msgid "Confirmar contraseña"
-msgstr "Confirm password"
-
-#: app/templates/auth/reset_password.html:5
+#: app/templates/auth/reset_password.html:6
 msgid "Nuée — Nueva contraseña"
 msgstr "Nuée — New Password"
 
-#: app/templates/auth/reset_password.html:200
-msgid "Elige una contraseña segura"
-msgstr "Choose a secure password"
-
-#: app/templates/auth/reset_password.html:217
+#: app/templates/auth/reset_password.html:396
+#: app/templates/auth/reset_password.html:448
 msgid "Nueva contraseña"
 msgstr "New password"
 
-#: app/templates/auth/reset_password.html:228
+#: app/templates/auth/reset_password.html:398
+msgid "Un nuevo comienzo."
+msgstr "A fresh start."
+
+#: app/templates/auth/reset_password.html:400
+msgid "Elige una contraseña segura y vuelve a tu cielo despejado."
+msgstr "Choose a secure password and get back to your clear sky."
+
+#: app/templates/auth/reset_password.html:430
+msgid "Elige una contraseña segura"
+msgstr "Choose a secure password"
+
+#: app/templates/auth/reset_password.html:460
 msgid "Guardar contraseña"
 msgstr "Save password"
 
-#: app/templates/auth/verify_code.html:5
+#: app/templates/auth/verify_code.html:6
 msgid "Nuée — Verificar código"
 msgstr "Nuée — Verify Code"
 
-#: app/templates/auth/verify_code.html:204
+#: app/templates/auth/verify_code.html:400
+msgid "Verificación"
+msgstr "Verification"
+
+#: app/templates/auth/verify_code.html:402
+msgid "Revisa tu bandeja de entrada."
+msgstr "Check your inbox."
+
+#: app/templates/auth/verify_code.html:404
+msgid "Escribe el código de 6 dígitos que enviamos a tu correo."
+msgstr "Enter the 6-digit code we sent to your email."
+
+#: app/templates/auth/verify_code.html:434
 msgid "Revisa tu correo y escribe el código de 6 dígitos"
 msgstr "Check your email and enter the 6-digit code"
 
-#: app/templates/auth/verify_code.html:222
+#: app/templates/auth/verify_code.html:453
 msgid "Código de verificación"
 msgstr "Verification code"
 
-#: app/templates/auth/verify_code.html:229
+#: app/templates/auth/verify_code.html:460
 msgid "Verificar código"
 msgstr "Verify code"
 
-#: app/templates/auth/verify_code.html:235
+#: app/templates/auth/verify_code.html:465
 msgid "Solicitar nuevo código"
 msgstr "Request new code"
 
@@ -431,39 +754,9 @@ msgstr "New Contact"
 msgid "Registrar Nuevo Contacto"
 msgstr "Register New Contact"
 
-#: app/templates/clienteproveedor/create.html:16
-#: app/templates/clienteproveedor/index.html:137
-msgid "Tipo de Contacto"
-msgstr "Contact Type"
-
-#: app/templates/clienteproveedor/create.html:23
-#: app/templates/clienteproveedor/edit.html:78
-#: app/templates/clienteproveedor/index.html:87
-#: app/templates/clienteproveedor/index.html:143
-#: app/templates/facturas/index.html:59 app/templates/facturas/nueva.html:239
-#: app/templates/facturas/nueva.html:334
-#: app/templates/movimientos/create.html:12
-msgid "Cliente"
-msgstr "Client"
-
-#: app/templates/clienteproveedor/create.html:30
-#: app/templates/clienteproveedor/edit.html:84
-#: app/templates/clienteproveedor/index.html:89
-#: app/templates/clienteproveedor/index.html:150
-#: app/templates/facturas/nueva.html:240 app/templates/facturas/nueva.html:334
-#: app/templates/lotes/create.html:34 app/templates/lotes/index.html:70
-msgid "Proveedor"
-msgstr "Supplier"
-
 #: app/templates/clienteproveedor/create.html:39
 msgid "Identificación"
 msgstr "Identification"
-
-#: app/templates/clienteproveedor/create.html:44
-#: app/templates/clienteproveedor/edit.html:21
-#: app/templates/facturas/nueva.html:67 app/templates/facturas/nueva.html:219
-msgid "Tipo de Identificación"
-msgstr "ID Type"
 
 #: app/templates/clienteproveedor/create.html:47
 msgid "Cédula (CC)"
@@ -473,10 +766,6 @@ msgstr "ID Card (CC)"
 msgid "Cédula Extranjería (CE)"
 msgstr "Foreign ID (CE)"
 
-#: app/templates/clienteproveedor/create.html:49
-msgid "Pasaporte (PP)"
-msgstr "Passport (PP)"
-
 #: app/templates/clienteproveedor/create.html:55
 msgid "Número"
 msgstr "Number"
@@ -484,30 +773,6 @@ msgstr "Number"
 #: app/templates/clienteproveedor/create.html:70
 msgid "Datos del Contacto"
 msgstr "Contact Details"
-
-#: app/templates/clienteproveedor/create.html:76
-#: app/templates/facturas/nueva.html:248
-msgid "Nombre / Razón Social"
-msgstr "Name / Business Name"
-
-#: app/templates/clienteproveedor/create.html:86
-#: app/templates/clienteproveedor/edit.html:50
-#: app/templates/clienteproveedor/index.html:69
-#: app/templates/facturas/nueva.html:87 app/templates/facturas/nueva.html:265
-msgid "Dirección"
-msgstr "Address"
-
-#: app/templates/clienteproveedor/create.html:95
-#: app/templates/clienteproveedor/index.html:70
-#: app/templates/facturas/nueva.html:255
-msgid "Celular"
-msgstr "Phone"
-
-#: app/templates/clienteproveedor/create.html:104
-#: app/templates/clienteproveedor/edit.html:63
-#: app/templates/facturas/nueva.html:95 app/templates/facturas/nueva.html:271
-msgid "Correo Electrónico"
-msgstr "Email address"
 
 #: app/templates/clienteproveedor/create.html:110
 #: app/templates/clienteproveedor/index.html:192
@@ -537,11 +802,6 @@ msgstr "National ID"
 #: app/templates/facturas/nueva.html:71 app/templates/facturas/nueva.html:224
 msgid "Cédula de Extranjería"
 msgstr "Foreign ID"
-
-#: app/templates/clienteproveedor/edit.html:35
-#: app/templates/facturas/nueva.html:78 app/templates/facturas/nueva.html:229
-msgid "Número de Identificación"
-msgstr "ID Number"
 
 #: app/templates/clienteproveedor/edit.html:43
 msgid "Nombre completo / Razón Social"
@@ -670,12 +930,6 @@ msgstr "Invoice List"
 msgid "Buscar por N°, cliente, estado..."
 msgstr "Search by No., client, status..."
 
-#: app/templates/facturas/index.html:57 app/templates/insumos/create.html:23
-#: app/templates/insumos/delete.html:22 app/templates/insumos/edit.html:23
-#: app/templates/insumos/index.html:90
-msgid "Código"
-msgstr "Code"
-
 #: app/templates/facturas/index.html:58
 msgid "N° Factura"
 msgstr "Invoice No."
@@ -776,12 +1030,6 @@ msgstr "Auto-filled"
 msgid "Se autocompleta al seleccionar cliente"
 msgstr "Auto-filled when client is selected"
 
-#: app/templates/facturas/nueva.html:103
-#: app/templates/movimientos/create.html:149
-#: app/templates/movimientos/edit.html:54
-msgid "Observaciones"
-msgstr "Notes"
-
 #: app/templates/facturas/nueva.html:105
 #: app/templates/movimientos/create.html:151
 msgid "Notas adicionales..."
@@ -805,21 +1053,9 @@ msgstr "Add product"
 msgid "Producto"
 msgstr "Product"
 
-#: app/templates/facturas/nueva.html:146 app/templates/lotes/create.html:47
-#: app/templates/lotes/index.html:71 app/templates/main/dashboard.html:248
-#: app/templates/movimientos/create.html:375
-#: app/templates/movimientos/edit.html:28
-msgid "Cantidad"
-msgstr "Quantity"
-
 #: app/templates/facturas/nueva.html:147
 msgid "Precio Unit."
 msgstr "Unit Price"
-
-#: app/templates/facturas/nueva.html:148 app/templates/insumos/create.html:111
-#: app/templates/insumos/edit.html:99
-msgid "IVA %"
-msgstr "VAT %"
 
 #: app/templates/facturas/nueva.html:166
 msgid "Guardar Factura"
@@ -903,11 +1139,6 @@ msgstr "Product Information"
 msgid "Código único del producto"
 msgstr "Unique product code"
 
-#: app/templates/insumos/create.html:37 app/templates/insumos/edit.html:34
-#: app/templates/insumos/index.html:92
-msgid "Lote"
-msgstr "Batch"
-
 #: app/templates/insumos/create.html:43 app/templates/insumos/edit.html:40
 msgid "Número de lote del fabricante"
 msgstr "Manufacturer batch number"
@@ -928,11 +1159,6 @@ msgstr "Health Registry"
 msgid "Opcional — Registro sanitario"
 msgstr "Optional — Health registry"
 
-#: app/templates/insumos/create.html:85 app/templates/insumos/edit.html:76
-#: app/templates/lotes/create.html:79
-msgid "Fecha de Vencimiento"
-msgstr "Expiration Date"
-
 #: app/templates/insumos/create.html:92 app/templates/insumos/edit.html:83
 msgid "Producto vencido"
 msgstr "Expired product"
@@ -942,8 +1168,9 @@ msgid "Valor Unitario"
 msgstr "Unit Price"
 
 #: app/templates/insumos/create.html:119 app/templates/insumos/edit.html:109
-msgid "Aplica IVA (19%)"
-msgstr "Apply VAT (19%)"
+#, python-format
+msgid "Aplica IVA (19%%)"
+msgstr "Apply VAT (19%%)"
 
 #: app/templates/insumos/create.html:125 app/templates/insumos/edit.html:115
 msgid "Precio Final"
@@ -960,10 +1187,6 @@ msgstr "Initial Quantity"
 #: app/templates/insumos/create.html:145
 msgid "Unidades disponibles al registrar"
 msgstr "Units available at registration"
-
-#: app/templates/insumos/create.html:153
-msgid "Stock Mínimo"
-msgstr "Minimum Stock"
 
 #: app/templates/insumos/create.html:159
 msgid "Alerta cuando el stock baje de este número"
@@ -988,10 +1211,6 @@ msgstr "Confirm deletion"
 #: app/templates/insumos/delete.html:17
 msgid "¿Seguro que deseas eliminar el siguiente insumo?"
 msgstr "Are you sure you want to delete this product?"
-
-#: app/templates/insumos/delete.html:25 app/templates/insumos/index.html:91
-msgid "Descripción"
-msgstr "Description"
 
 #: app/templates/insumos/delete.html:28 app/templates/insumos/index.html:96
 msgid "Stock"
@@ -1073,10 +1292,6 @@ msgstr "Inactive"
 #: app/templates/insumos/index.html:93
 msgid "INVIMA"
 msgstr "Health Reg."
-
-#: app/templates/insumos/index.html:94
-msgid "Valor"
-msgstr "Price"
 
 #: app/templates/insumos/index.html:97 app/templates/lotes/index.html:74
 #: app/templates/movimientos/create.html:393
@@ -1405,50 +1620,17 @@ msgstr "No products added"
 msgid "Detalles de la Operación"
 msgstr "Operation Details"
 
-#: app/templates/movimientos/create.html:124
-#: app/templates/movimientos/edit.html:35
-msgid "Tipo de operación"
-msgstr "Operation type"
-
-#: app/templates/movimientos/create.html:126
-#: app/templates/movimientos/edit.html:38
-msgid "Venta (Salida)"
-msgstr "Sale (Outbound)"
-
-#: app/templates/movimientos/create.html:127
-#: app/templates/movimientos/edit.html:40
-msgid "Compra (Entrada)"
-msgstr "Purchase (Inbound)"
-
-#: app/templates/movimientos/create.html:128
-#: app/templates/movimientos/edit.html:42
-#: app/templates/movimientos/index.html:84
-msgid "Devolución"
-msgstr "Return"
-
 #: app/templates/movimientos/create.html:129
 msgid "Baja (Daño / Vencimiento)"
 msgstr "Write-off (Damage / Expiration)"
-
-#: app/templates/movimientos/create.html:134
-msgid "N° Comprobante"
-msgstr "Receipt No."
 
 #: app/templates/movimientos/create.html:139
 msgid "Para bajas el sistema genera el comprobante automáticamente."
 msgstr "For write-offs the system generates the receipt automatically."
 
-#: app/templates/movimientos/create.html:144
-msgid "Vencimiento del lote"
-msgstr "Batch expiration"
-
 #: app/templates/movimientos/create.html:171
 msgid "TOTAL:"
 msgstr "TOTAL:"
-
-#: app/templates/movimientos/create.html:182
-msgid "Guardar Movimiento"
-msgstr "Save Movement"
 
 #: app/templates/movimientos/create.html:249
 #: app/templates/movimientos/create.html:294
@@ -1536,3 +1718,4 @@ msgstr "Inbound"
 #: app/templates/movimientos/index.html:82
 msgid "Salida"
 msgstr "Outbound"
+

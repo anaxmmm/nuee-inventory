@@ -1,173 +1,178 @@
 # Nuée — Skincare Inventory System
 
-> *Del francés "nube" — inspirado en la fotografía aérea de nubes.*
+> *From the French "nuée", a cloud — inspired by aerial photography of clouds.*
 
-Aplicación web full-stack de gestión de inventario construida con **Python + Flask**, diseñada para negocios de productos de skincare. Desarrollada como proyecto de grado en INDECAP (Envigado, Colombia).
+Full-stack inventory management web app for skincare businesses, built with **Python and Flask**. It tracks products, batches and expiration dates, records every stock movement, issues invoices in Colombian pesos (COP) and shows the state of the business on a dashboard.
 
----
-
-## Funcionalidades
-
-- **Autenticación completa** — Login, registro, recuperación de contraseña con verificación por código OTP enviado al correo
-- **Gestión de usuarios** — Roles de administrador y usuario estándar con permisos diferenciados
-- **Inventario de productos** — CRUD completo con control de stock mínimo, lote e INVIMA
-- **Movimientos de inventario** — Registro de entradas, salidas, daños y vencimientos con generación automática de comprobantes
-- **Facturación** — Creación y consulta de facturas con formato de moneda colombiana (COP) y exportación a PDF
-- **Clientes y proveedores** — Directorio de contactos con tipos de documento
-- **Dashboard** — Métricas en tiempo real: total de productos, alertas de stock bajo, movimientos recientes
-- **Movimientos rápidos** — Flujo de "Usuario Ocasional" para operaciones de stock sin registro completo
-- **Modo oscuro / claro** — Interfaz adaptativa con sistema de diseño mineral/monocromático
-- **Multilenguaje** — Interfaz disponible en español, inglés, francés y portugués (Flask-Babel)
+Built by Ana Melo during the Software Development program at INDECAP (Envigado, Colombia).
 
 ---
 
-## Stack tecnológico
+## Features
 
-| Capa | Tecnología |
+- **Authentication**: sign in, sign up and password recovery with a 6-digit code sent by email, limited to 5 attempts and valid for 15 minutes.
+- **Roles**: administrators and standard users. Editing or deleting products and movements, changing invoice status and managing users are restricted to administrators and checked on the server.
+- **Products**: full CRUD with minimum stock, batch, health registry (INVIMA), VAT and expiration date.
+- **Batches**: each product keeps its batches with supplier, purchase cost and expiration.
+- **Inventory movements**: inbound, outbound, returns and write-offs (damage or expiration), with automatic receipt numbers.
+- **Quick movement**: register a sale for an occasional customer without creating a contact first.
+- **Invoicing**: invoices in COP with VAT, status (pending, paid, voided), PDF export and email delivery.
+- **Clients and suppliers**: contact directory with ID type, search and quick lookup by ID number.
+- **Dashboard**: totals, low-stock and expiration alerts, inbound vs outbound chart for the last 7 days and top 5 best sellers.
+- **Light and dark mode** with a calm, cloud-inspired visual identity.
+- **Four languages**: Spanish, English, French and Portuguese (Flask-Babel).
+
+---
+
+## Tech stack
+
+| Layer | Technology |
 |---|---|
-| Backend | Python 3, Flask, SQLAlchemy |
-| Base de datos | SQL Server (pyodbc + ODBC Driver 17) |
-| Migraciones | Flask-Migrate / Alembic |
-| Frontend | HTML5, CSS3, Jinja2, Bootstrap, JavaScript |
-| Autenticación | Flask-Login, verificación OTP por email |
-| Formularios | Flask-WTF (con protección CSRF) |
-| Email | Flask-Mail (SMTP Gmail) |
-| PDF | Generación desde Python |
+| Backend | Python 3, Flask (application factory and blueprints), SQLAlchemy |
+| Database | SQL Server (pyodbc, ODBC Driver 17); any SQLAlchemy URL works through `DATABASE_URL` |
+| Migrations | Flask-Migrate / Alembic |
+| Frontend | HTML5, CSS3, Jinja2, Bootstrap 5, Bootstrap Icons, Chart.js, JavaScript |
+| Forms and security | Flask-WTF with CSRF protection, hashed passwords (Werkzeug) |
+| Email | Flask-Mail (SMTP) |
+| PDF | ReportLab |
 | i18n | Flask-Babel |
-| Configuración | python-dotenv |
+| Configuration | python-dotenv |
 
 ---
 
-## Estructura del proyecto
+## Project structure
 
 ```
 nuee-inventory/
 ├── app/
-│   ├── auth/                      # Login, registro, recuperación de contraseña
-│   ├── clienteproveedor/          # Directorio de clientes y proveedores
-│   ├── facturas/                  # Facturación, generación de PDF y envío por email
-│   ├── insumos/                   # Catálogo de productos e inventario
-│   ├── lotes/                     # Control de lotes y vencimientos
-│   ├── main/                      # Dashboard principal
-│   ├── movimientos/               # Entradas y salidas de inventario
-│   ├── static/                    # CSS, JS, imágenes
-│   ├── templates/                 # Plantillas Jinja2 por módulo
-│   ├── translations/              # Archivos .po/.mo (es, en, fr, pt)
-│   ├── extensions.py              # Inicialización de extensiones Flask
+│   ├── auth/                      # Sign in, sign up, password recovery, profile and users
+│   ├── clienteproveedor/          # Clients and suppliers
+│   ├── facturas/                  # Invoices, PDF generation and email delivery
+│   ├── insumos/                   # Product catalog and inventory
+│   ├── lotes/                     # Batches and expiration dates
+│   ├── main/                      # Dashboard
+│   ├── movimientos/               # Inbound and outbound movements
+│   ├── static/                    # CSS
+│   ├── templates/                 # Jinja2 templates per module
+│   ├── translations/              # .po/.mo catalogs (en, fr, pt; Spanish is the source)
+│   ├── extensions.py              # Flask extensions
 │   └── __init__.py                # Application factory (create_app)
-├── migrations/                    # Historial de migraciones Alembic
-├── app.py                         # Punto de entrada
-├── config.py                      # Configuraciones por entorno (Dev / Prod)
-├── babel.cfg                      # Configuración para extracción i18n
+├── migrations/                    # Alembic history
+├── app.py                         # Entry point
+├── config.py                      # Development and production settings
+├── babel.cfg                      # i18n extraction settings
 ├── requirements.txt
-├── crear_usuario.py               # Script para crear el primer usuario admin
-├── seed_nuee.py                   # Script para poblar el catálogo inicial
-└── seed_contactos_movimientos.py  # Script para datos de prueba
+├── crear_usuario.py               # Creates the first administrator (asks for the password)
+├── seed_nuee.py                   # Sample product catalog
+└── seed_contactos_movimientos.py  # Sample contacts and movements (fictitious data)
 ```
 
 ---
 
-## Instalación local
+## Running locally
 
-### Requisitos previos
+### Requirements
 
-- Python 3.10+
-- SQL Server con ODBC Driver 17
-- Cuenta Gmail con contraseña de aplicación
+- Python 3.10 or later
+- SQL Server with ODBC Driver 17 (or another database through `DATABASE_URL`)
+- An SMTP account for password recovery and invoice emails (optional in development)
 
-### Pasos
+### Steps
 
 ```bash
-# Clonar el repositorio
-git clone https://github.com/ancreart/nuee-inventory.git
+git clone https://github.com/anaxmmm/nuee-inventory.git
 cd nuee-inventory
 
-# Crear y activar entorno virtual
 python -m venv venv
 venv\Scripts\activate        # Windows
 # source venv/bin/activate   # macOS / Linux
 
-# Instalar dependencias
 pip install -r requirements.txt
 ```
 
-Crear un archivo `.env` en la raíz del proyecto:
+Create a `.env` file in the project root:
 
 ```env
-SECRET_KEY=una-clave-secreta-segura
-MAIL_USERNAME=tu-correo@gmail.com
-MAIL_PASSWORD=tu-contraseña-de-aplicacion
+SECRET_KEY=a-long-random-secret-key
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
 ```
 
 ```bash
-# Aplicar migraciones (requiere que NueeDB exista en SQL Server)
+# Apply migrations (the NueeDB database must exist in SQL Server)
 flask db upgrade
 
-# (Opcional) Poblar catálogo inicial de productos
+# Optional: sample products, contacts and movements
 python seed_nuee.py
+python seed_contactos_movimientos.py
 
-# Crear el primer usuario administrador
+# Create the first administrator (asks for the password in the console)
 python crear_usuario.py
 
-# Ejecutar la aplicación
+# Run the app
 python app.py
 ```
 
-Disponible en `http://127.0.0.1:5000`
+Open `http://127.0.0.1:5000`.
+
+In development, if sending the recovery email fails, the code is printed only in the server console.
 
 ---
 
-## Variables de entorno
+## Environment variables
 
-| Variable | Descripción |
+| Variable | Description |
 |---|---|
-| `SECRET_KEY` | Clave para firmar sesiones y tokens CSRF |
-| `MAIL_USERNAME` | Correo Gmail para envío de emails |
-| `MAIL_PASSWORD` | Contraseña de aplicación de Gmail (no la contraseña principal) |
-| `DATABASE_URL` | Cadena de conexión completa (solo requerida en producción) |
+| `SECRET_KEY` | Signs sessions and CSRF tokens. Required in production. |
+| `FLASK_ENV` | `development` (default) or `production` |
+| `DATABASE_URL` | Full database URL. Optional in development; overrides the default SQL Server connection |
+| `MAIL_USERNAME` | Email account used to send emails |
+| `MAIL_PASSWORD` | App password for that account (not the main password) |
+| `MAIL_DEBUG` | `True` to log SMTP traffic while debugging |
+| `SESSION_COOKIE_SECURE` | `True` when the app is served over HTTPS |
+
+The `.env` file is never committed.
 
 ---
 
-## Internacionalización
+## Translations
 
 ```bash
-# Extraer cadenas del código fuente
-pybabel extract -F babel.cfg -o app/translations/messages.pot .
-
-# Actualizar archivos .po existentes
+pybabel extract -F babel.cfg -k _l -k lazy_gettext -o app/translations/messages.pot .
 pybabel update -i app/translations/messages.pot -d app/translations
-
-# Compilar traducciones
 pybabel compile -d app/translations
 ```
 
-Idiomas disponibles: `es` (español), `en` (inglés), `fr` (francés), `pt` (portugués).
+Available languages: `es` (Spanish, source), `en` (English), `fr` (French), `pt` (Portuguese).
 
 ---
 
-## Sistema de diseño
+## Design system
 
-Nuée usa una identidad mineral/monocromática inspirada en fotografía de nubes:
+Nuée uses a calm, cloud-inspired identity:
 
-- **Color principal:** `#111111`
-- **Fondo:** `#FAFAFA`
-- **Fuente UI:** DM Sans
-- **Fuente de marca:** Tenor Sans
-- **Referencia visual:** The Ordinary (minimalismo editorial)
-
----
-
-## Desarrolladora
-
-**Ana María Melo Marín**  
-Egresada de Análisis y Desarrollo de Software — INDECAP, Envigado, Colombia  
-Marca creativa: [An.creart](https://www.linkedin.com/in/ana-mar%C3%ADa-melo-marin-6438a3214/)
-
-- [LinkedIn](https://www.linkedin.com/in/ana-mar%C3%ADa-melo-marin-6438a3214/)
-- [GitHub](https://github.com/ancreart)
+| Token | Value |
+|---|---|
+| Sky deep (primary) | `#7B8FC7` |
+| Sky mid | `#A3B2D9` |
+| Sky light | `#C7D2E8` |
+| Sky pale | `#EEF1F8` |
+| Text | `#111111` |
+| Background | `#FAFAFA` |
+| UI typeface | DM Sans |
+| Brand typeface | Tenor Sans |
 
 ---
 
-## Licencia
+## Author
 
-Proyecto desarrollado como trabajo de grado. Todos los derechos reservados © 2026 Ana María Melo Marín.
+**Ana Melo** — Software developer and UX/UI designer, Medellín, Colombia
+
+- [LinkedIn](https://www.linkedin.com/in/anamelomarin/)
+- [GitHub](https://github.com/anaxmmm)
+
+---
+
+## License
+
+All rights reserved © 2026 Ana María Melo Marín.

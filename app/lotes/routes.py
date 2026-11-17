@@ -1,19 +1,10 @@
-from flask import render_template, request, redirect, url_for, flash, session
+from flask import render_template, request, redirect, url_for, flash
 from . import lotes_bp
 from .services import crear_lote, listar_lotes_por_insumo, obtener_lote, eliminar_lote
 from app.insumos.models import Insumo
 from app.clienteproveedor.models import ClienteProveedor
 from datetime import datetime
-
-
-def login_required(f):
-    from functools import wraps
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        if 'user_id' not in session:
-            return redirect(url_for('auth.login'))
-        return f(*args, **kwargs)
-    return decorated
+from app.auth.routes import login_required
 
 
 @lotes_bp.route('/insumo/<int:id_insumo>')
@@ -21,7 +12,7 @@ def login_required(f):
 def index(id_insumo):
     insumo    = Insumo.query.get_or_404(id_insumo)
     lotes     = listar_lotes_por_insumo(id_insumo)
-    proveedores = ClienteProveedor.query.filter_by(tipo='P').all()
+    proveedores = ClienteProveedor.query.filter(ClienteProveedor.tipo.in_(['P', 'Proveedor'])).all()
     prov_map  = {p.id: p.nombre for p in proveedores}
 
     total_unidades = sum(l.cantidad for l in lotes)
@@ -46,7 +37,7 @@ def index(id_insumo):
 @login_required
 def crear(id_insumo):
     insumo      = Insumo.query.get_or_404(id_insumo)
-    proveedores = ClienteProveedor.query.filter_by(tipo='P').all()
+    proveedores = ClienteProveedor.query.filter(ClienteProveedor.tipo.in_(['P', 'Proveedor'])).all()
 
     if request.method == 'POST':
         try:
@@ -72,7 +63,8 @@ def crear(id_insumo):
 
     return render_template('lotes/create.html',
                            insumo=insumo,
-                           proveedores=proveedores)
+                           proveedores=proveedores,
+                           today=datetime.now().date())
 
 
 @lotes_bp.route('/<int:lote_id>/eliminar', methods=['POST'])

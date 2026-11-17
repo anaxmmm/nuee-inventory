@@ -22,7 +22,7 @@ def dashboard():
     en_30_dias = hoy + timedelta(days=30)
 
     total_insumos  = Insumo.query.filter_by(activo=True).count()
-    total_clientes = ClienteProveedor.query.filter_by(tipo='Cliente').count()
+    total_clientes = ClienteProveedor.query.filter(ClienteProveedor.tipo.in_(['C', 'Cliente'])).count()
 
     inicio_hoy = datetime.combine(hoy, datetime.min.time())
     fin_hoy    = inicio_hoy + timedelta(days=1)

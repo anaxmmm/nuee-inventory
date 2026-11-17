@@ -18,9 +18,6 @@ env/
 *.db
 *.sqlite3
 
-# Archivos compilados de traducción (se generan con pybabel compile)
-*.mo
-
 # Archivos temporales de Babel en raíz
 messages.pot
 

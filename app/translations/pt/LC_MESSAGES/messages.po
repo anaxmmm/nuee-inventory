@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-04 03:49-0500\n"
+"POT-Creation-Date: 2026-11-16 19:48-0500\n"
 "PO-Revision-Date: 2026-05-22 19:28-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -18,169 +18,484 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app/templates/base.html:771
+#: app/auth/forms.py:8 app/templates/auth/admin_usuarios.html:23
+#: app/templates/auth/configuracion.html:24 app/templates/auth/perfil.html:34
+msgid "Usuario"
+msgstr "Usuário"
+
+#: app/auth/forms.py:9 app/auth/forms.py:20
+#: app/templates/auth/register.html:470 app/templates/login.html:615
+msgid "Contraseña"
+msgstr "Senha"
+
+#: app/auth/forms.py:10
+msgid "Ingresar"
+msgstr "Entrar"
+
+#: app/auth/forms.py:14 app/auth/forms.py:30
+#: app/templates/auth/register.html:455
+msgid "Nombre completo"
+msgstr "Nome completo"
+
+#: app/auth/forms.py:16 app/auth/forms.py:32
+#: app/templates/auth/forgot_password.html:448
+#: app/templates/auth/register.html:460
+msgid "Correo electrónico"
+msgstr "Endereço de e-mail"
+
+#: app/auth/forms.py:18 app/templates/auth/register.html:465
+msgid "Nombre de usuario"
+msgstr "Usuário"
+
+#: app/auth/forms.py:22 app/templates/auth/register.html:475
+#: app/templates/auth/reset_password.html:454
+msgid "Confirmar contraseña"
+msgstr "Confirmar senha"
+
+#: app/auth/forms.py:25 app/auth/forms.py:39
+msgid "Las contraseñas no coinciden"
+msgstr "As senhas não coincidem"
+
+#: app/auth/forms.py:26 app/templates/auth/admin_crear_usuario.html:66
+msgid "Crear usuario"
+msgstr "Criar usuário"
+
+#: app/auth/forms.py:34
+msgid "Nueva contraseña (opcional)"
+msgstr "Nova senha (opcional)"
+
+#: app/auth/forms.py:36
+msgid "Confirmar nueva contraseña"
+msgstr "Confirmar nova senha"
+
+#: app/auth/forms.py:40
+msgid "Guardar cambios"
+msgstr "Salvar alterações"
+
+#: app/clienteproveedor/forms.py:10
+#: app/templates/clienteproveedor/create.html:44
+#: app/templates/clienteproveedor/edit.html:21
+#: app/templates/facturas/nueva.html:67 app/templates/facturas/nueva.html:219
+msgid "Tipo de Identificación"
+msgstr "Tipo de documento"
+
+#: app/clienteproveedor/forms.py:13
+msgid "Cédula de Ciudadanía (CC)"
+msgstr "Cédula de identidade (CC)"
+
+#: app/clienteproveedor/forms.py:14
+msgid "Cédula de Extranjería (CE)"
+msgstr "Documento de estrangeiro (CE)"
+
+#: app/clienteproveedor/forms.py:15
+#: app/templates/clienteproveedor/create.html:49
+msgid "Pasaporte (PP)"
+msgstr "Passaporte (PP)"
+
+#: app/clienteproveedor/forms.py:21 app/templates/clienteproveedor/edit.html:35
+#: app/templates/facturas/nueva.html:78 app/templates/facturas/nueva.html:229
+msgid "Número de Identificación"
+msgstr "Número de identificação"
+
+#: app/clienteproveedor/forms.py:22
+msgid "El número de identificación es obligatorio"
+msgstr "O número de identificação é obrigatório"
+
+#: app/clienteproveedor/forms.py:27
+#: app/templates/clienteproveedor/create.html:76
+#: app/templates/facturas/nueva.html:248
+msgid "Nombre / Razón Social"
+msgstr "Nome / Razão social"
+
+#: app/clienteproveedor/forms.py:28
+msgid "El nombre es obligatorio"
+msgstr "O nome é obrigatório"
+
+#: app/clienteproveedor/forms.py:33
+#: app/templates/clienteproveedor/create.html:86
+#: app/templates/clienteproveedor/edit.html:50
+#: app/templates/clienteproveedor/index.html:69
+#: app/templates/facturas/nueva.html:87 app/templates/facturas/nueva.html:265
+msgid "Dirección"
+msgstr "Endereço"
+
+#: app/clienteproveedor/forms.py:38
+#: app/templates/clienteproveedor/create.html:95
+#: app/templates/clienteproveedor/index.html:70
+#: app/templates/facturas/nueva.html:255
+msgid "Celular"
+msgstr "Telefone"
+
+#: app/clienteproveedor/forms.py:43
+#: app/templates/clienteproveedor/create.html:104
+#: app/templates/clienteproveedor/edit.html:63
+#: app/templates/facturas/nueva.html:95 app/templates/facturas/nueva.html:271
+msgid "Correo Electrónico"
+msgstr "Endereço de e-mail"
+
+#: app/clienteproveedor/forms.py:44
+msgid "Ingresa un correo válido"
+msgstr "Digite um e-mail válido"
+
+#: app/clienteproveedor/forms.py:48
+#: app/templates/clienteproveedor/create.html:16
+#: app/templates/clienteproveedor/index.html:137
+msgid "Tipo de Contacto"
+msgstr "Tipo de contato"
+
+#: app/clienteproveedor/forms.py:49 app/facturas/forms.py:9
+#: app/movimientos/forms.py:10 app/templates/clienteproveedor/create.html:23
+#: app/templates/clienteproveedor/edit.html:78
+#: app/templates/clienteproveedor/index.html:87
+#: app/templates/clienteproveedor/index.html:143
+#: app/templates/facturas/index.html:59 app/templates/facturas/nueva.html:239
+#: app/templates/facturas/nueva.html:334
+#: app/templates/movimientos/create.html:12
+msgid "Cliente"
+msgstr "Cliente"
+
+#: app/clienteproveedor/forms.py:49
+#: app/templates/clienteproveedor/create.html:30
+#: app/templates/clienteproveedor/edit.html:84
+#: app/templates/clienteproveedor/index.html:89
+#: app/templates/clienteproveedor/index.html:150
+#: app/templates/facturas/nueva.html:240 app/templates/facturas/nueva.html:334
+#: app/templates/lotes/create.html:34 app/templates/lotes/index.html:70
+msgid "Proveedor"
+msgstr "Fornecedor"
+
+#: app/facturas/forms.py:10 app/movimientos/forms.py:11
+msgid "Seleccione un cliente"
+msgstr "Selecione um cliente"
+
+#: app/facturas/forms.py:13 app/movimientos/forms.py:46
+#: app/templates/facturas/nueva.html:103
+#: app/templates/movimientos/create.html:149
+#: app/templates/movimientos/edit.html:54
+msgid "Observaciones"
+msgstr "Observações"
+
+#: app/facturas/forms.py:16
+msgid "Crear Factura"
+msgstr "Criar fatura"
+
+#: app/insumos/forms.py:9 app/templates/facturas/index.html:57
+#: app/templates/insumos/create.html:23 app/templates/insumos/delete.html:22
+#: app/templates/insumos/edit.html:23 app/templates/insumos/index.html:90
+msgid "Código"
+msgstr "Código"
+
+#: app/insumos/forms.py:11
+msgid "El código es obligatorio"
+msgstr "O código é obrigatório"
+
+#: app/insumos/forms.py:17 app/templates/insumos/delete.html:25
+#: app/templates/insumos/index.html:91
+msgid "Descripción"
+msgstr "Descrição"
+
+#: app/insumos/forms.py:19
+msgid "La descripción es obligatoria"
+msgstr "A descrição é obrigatória"
+
+#: app/insumos/forms.py:25 app/templates/insumos/create.html:37
+#: app/templates/insumos/edit.html:34 app/templates/insumos/index.html:92
+msgid "Lote"
+msgstr "Lote"
+
+#: app/insumos/forms.py:27
+msgid "El lote es obligatorio"
+msgstr "O lote é obrigatório"
+
+#: app/insumos/forms.py:33
+msgid "Registro INVIMA"
+msgstr "Registro INVIMA"
+
+#: app/insumos/forms.py:41 app/templates/insumos/index.html:94
+msgid "Valor"
+msgstr "Preço"
+
+#: app/insumos/forms.py:43
+msgid "El valor es obligatorio"
+msgstr "O preço é obrigatório"
+
+#: app/insumos/forms.py:50 app/templates/facturas/nueva.html:148
+#: app/templates/insumos/create.html:111 app/templates/insumos/edit.html:99
+#, python-format
+msgid "IVA %%"
+msgstr "IVA %%"
+
+#: app/insumos/forms.py:60 app/movimientos/forms.py:32
+#: app/templates/facturas/nueva.html:146 app/templates/lotes/create.html:47
+#: app/templates/lotes/index.html:71 app/templates/main/dashboard.html:248
+#: app/templates/movimientos/create.html:375
+#: app/templates/movimientos/edit.html:28
+msgid "Cantidad"
+msgstr "Quantidade"
+
+#: app/insumos/forms.py:62
+msgid "La cantidad es obligatoria"
+msgstr "A quantidade é obrigatória"
+
+#: app/insumos/forms.py:63
+msgid "La cantidad no puede ser negativa"
+msgstr "A quantidade não pode ser negativa"
+
+#: app/insumos/forms.py:69 app/templates/insumos/create.html:153
+msgid "Stock Mínimo"
+msgstr "Estoque mínimo"
+
+#: app/insumos/forms.py:71
+msgid "El stock mínimo es obligatorio"
+msgstr "O estoque mínimo é obrigatório"
+
+#: app/insumos/forms.py:72
+msgid "El stock mínimo no puede ser negativo"
+msgstr "O estoque mínimo não pode ser negativo"
+
+#: app/insumos/forms.py:78 app/templates/insumos/create.html:85
+#: app/templates/insumos/edit.html:76 app/templates/lotes/create.html:79
+msgid "Fecha de Vencimiento"
+msgstr "Data de validade"
+
+#: app/insumos/forms.py:83 app/templates/auth/admin_usuarios.html:45
+#: app/templates/auth/configuracion.html:46
+#: app/templates/insumos/index.html:159
+msgid "Activo"
+msgstr "Ativo"
+
+#: app/insumos/forms.py:85
+msgid "Guardar"
+msgstr "Salvar"
+
+#: app/movimientos/forms.py:14
+msgid "Insumo"
+msgstr "Produto"
+
+#: app/movimientos/forms.py:15
+msgid "Seleccione un insumo"
+msgstr "Selecione um produto"
+
+#: app/movimientos/forms.py:18 app/templates/movimientos/create.html:124
+#: app/templates/movimientos/edit.html:35
+msgid "Tipo de operación"
+msgstr "Tipo de operação"
+
+#: app/movimientos/forms.py:20 app/templates/movimientos/create.html:126
+#: app/templates/movimientos/edit.html:38
+msgid "Venta (Salida)"
+msgstr "Venda (saída)"
+
+#: app/movimientos/forms.py:21 app/templates/movimientos/create.html:127
+#: app/templates/movimientos/edit.html:40
+msgid "Compra (Entrada)"
+msgstr "Compra (entrada)"
+
+#: app/movimientos/forms.py:22 app/templates/movimientos/create.html:128
+#: app/templates/movimientos/edit.html:42
+#: app/templates/movimientos/index.html:84
+msgid "Devolución"
+msgstr "Devolução"
+
+#: app/movimientos/forms.py:27
+msgid "Precio unitario"
+msgstr "Preço unitário"
+
+#: app/movimientos/forms.py:37 app/templates/movimientos/create.html:134
+msgid "N° Comprobante"
+msgstr "Nº do recibo"
+
+#: app/movimientos/forms.py:41 app/templates/movimientos/create.html:144
+msgid "Vencimiento del lote"
+msgstr "Validade do lote"
+
+#: app/movimientos/forms.py:49 app/templates/movimientos/create.html:182
+msgid "Guardar Movimiento"
+msgstr "Salvar movimentação"
+
+#: app/templates/base.html:808 app/templates/login.html:527
 msgid "Skincare Management"
-msgstr ""
+msgstr "Gestão de skincare"
 
-#: app/templates/base.html:776
+#: app/templates/base.html:813
 msgid "Principal"
-msgstr ""
+msgstr "Principal"
 
-#: app/templates/base.html:783
+#: app/templates/base.html:820
 msgid "Inventario"
-msgstr ""
+msgstr "Inventário"
 
-#: app/templates/base.html:787 app/templates/facturas/nueva.html:133
+#: app/templates/base.html:824 app/templates/facturas/nueva.html:133
 #: app/templates/insumos/index.html:2 app/templates/movimientos/create.html:15
 #: app/templates/movimientos/create.html:80
 msgid "Productos"
-msgstr ""
+msgstr "Produtos"
 
-#: app/templates/base.html:792 app/templates/movimientos/index.html:2
+#: app/templates/base.html:829 app/templates/movimientos/index.html:2
 msgid "Movimientos"
-msgstr ""
+msgstr "Movimentações"
 
-#: app/templates/base.html:795
+#: app/templates/base.html:832
 msgid "Ventas"
-msgstr ""
+msgstr "Vendas"
 
-#: app/templates/base.html:799 app/templates/facturas/index.html:2
+#: app/templates/base.html:836 app/templates/facturas/index.html:2
 #: app/templates/facturas/index.html:3
 msgid "Facturas"
-msgstr ""
+msgstr "Faturas"
 
-#: app/templates/base.html:802
+#: app/templates/base.html:839
 msgid "Contactos"
-msgstr ""
+msgstr "Contatos"
 
-#: app/templates/base.html:806 app/templates/clienteproveedor/index.html:2
+#: app/templates/base.html:843 app/templates/clienteproveedor/index.html:2
 msgid "Clientes / Proveedores"
-msgstr ""
+msgstr "Clientes / Fornecedores"
 
-#: app/templates/base.html:819
+#: app/templates/base.html:854
+msgid "Abrir menú"
+msgstr "Abrir menu"
+
+#: app/templates/base.html:863
 msgid "Cambiar tema"
-msgstr ""
+msgstr "Mudar tema"
 
-#: app/templates/auth/forgot_password.html:188
-#: app/templates/auth/register.html:222
-#: app/templates/auth/reset_password.html:186
-#: app/templates/auth/verify_code.html:190 app/templates/base.html:821
-#: app/templates/login.html:306
+#: app/templates/auth/forgot_password.html:410
+#: app/templates/auth/register.html:419
+#: app/templates/auth/reset_password.html:410
+#: app/templates/auth/verify_code.html:414 app/templates/base.html:865
+#: app/templates/login.html:571
 msgid "Modo claro"
-msgstr ""
+msgstr "Modo claro"
 
-#: app/templates/auth/forgot_password.html:191
-#: app/templates/auth/register.html:225
-#: app/templates/auth/reset_password.html:189
-#: app/templates/auth/verify_code.html:193 app/templates/base.html:825
-#: app/templates/login.html:309
+#: app/templates/auth/forgot_password.html:413
+#: app/templates/auth/register.html:422
+#: app/templates/auth/reset_password.html:413
+#: app/templates/auth/verify_code.html:417 app/templates/base.html:869
+#: app/templates/login.html:574
 msgid "Modo oscuro"
-msgstr ""
+msgstr "Modo escuro"
 
-#: app/templates/base.html:841
+#: app/templates/base.html:885
 msgid "Administrador"
-msgstr ""
+msgstr "Administrador"
 
-#: app/templates/base.html:848
+#: app/templates/base.html:892
 msgid "Perfil"
-msgstr ""
+msgstr "Perfil"
 
 #: app/templates/auth/configuracion.html:2
-#: app/templates/auth/configuracion.html:3 app/templates/base.html:854
+#: app/templates/auth/configuracion.html:3 app/templates/base.html:898
 msgid "Configuración"
-msgstr ""
+msgstr "Configurações"
 
-#: app/templates/base.html:862
+#: app/templates/base.html:906
 msgid "Idioma"
-msgstr ""
+msgstr "Idioma"
 
-#: app/templates/base.html:882
+#: app/templates/base.html:926
 msgid "Cerrar sesión"
-msgstr ""
+msgstr "Sair"
 
 #: app/templates/login.html:6
 msgid "Nuée — Iniciar Sesión"
-msgstr ""
+msgstr "Nuée — Entrar"
 
-#: app/templates/login.html:325
+#: app/templates/login.html:529 app/templates/login.html:670
+msgid "Tu inventario, tan claro como el cielo."
+msgstr "Seu inventário, claro como o céu."
+
+#: app/templates/login.html:531 app/templates/login.html:671
+msgid "Controla lotes, vencimientos y movimientos sin nubarrones."
+msgstr "Controle lotes, validades e movimentações sem nuvens."
+
+#: app/templates/login.html:592
 msgid "Inicia sesión para continuar"
-msgstr ""
+msgstr "Entre para continuar"
 
-#: app/templates/login.html:343
+#: app/templates/login.html:610
 msgid "Usuario o correo"
-msgstr ""
+msgstr "Usuário ou e-mail"
 
-#: app/templates/auth/forgot_password.html:220
-#: app/templates/auth/perfil.html:59 app/templates/login.html:344
+#: app/templates/auth/forgot_password.html:449
+#: app/templates/auth/perfil.html:59 app/templates/login.html:611
 msgid "tu@correo.com"
-msgstr ""
+msgstr "seu@email.com"
 
-#: app/templates/auth/register.html:261 app/templates/login.html:348
-msgid "Contraseña"
-msgstr ""
-
-#: app/templates/login.html:355
+#: app/templates/login.html:622
 msgid "Recordarme"
-msgstr ""
+msgstr "Lembrar de mim"
 
-#: app/templates/login.html:357
+#: app/templates/login.html:624
 msgid "¿Olvidaste tu contraseña?"
-msgstr ""
+msgstr "Esqueceu sua senha?"
 
-#: app/templates/login.html:361
+#: app/templates/login.html:628
 msgid "Iniciar sesión"
-msgstr ""
+msgstr "Entrar"
 
-#: app/templates/login.html:366
+#: app/templates/login.html:633
 msgid "¿No tienes cuenta?"
-msgstr ""
+msgstr "Não tem uma conta?"
 
-#: app/templates/auth/register.html:269 app/templates/login.html:367
+#: app/templates/auth/register.html:480 app/templates/login.html:634
 msgid "Crear cuenta"
-msgstr ""
+msgstr "Criar conta"
+
+#: app/templates/login.html:674
+msgid "Cada lote, bajo control."
+msgstr "Cada lote, sob controle."
+
+#: app/templates/login.html:675
+msgid "Trazabilidad completa de tus productos skincare."
+msgstr "Rastreabilidade completa dos seus produtos de skincare."
+
+#: app/templates/auth/register.html:407 app/templates/login.html:678
+msgid "Belleza y orden en un mismo lugar."
+msgstr "Beleza e organização em um só lugar."
+
+#: app/templates/auth/register.html:409 app/templates/login.html:679
+msgid "Gestiona tu marca con la calma de un cielo despejado."
+msgstr "Gerencie sua marca com a calma de um céu limpo."
 
 #: app/templates/auth/admin_crear_usuario.html:2
 #: app/templates/auth/admin_crear_usuario.html:3
 #: app/templates/auth/admin_usuarios.html:10
 #: app/templates/auth/configuracion.html:11
 msgid "Nuevo Usuario"
-msgstr ""
+msgstr "Novo usuário"
 
 #: app/templates/auth/admin_crear_usuario.html:12
 msgid "Volver a Configuración"
-msgstr ""
+msgstr "Voltar às configurações"
 
 #: app/templates/auth/admin_crear_usuario.html:18
 msgid "Crear nuevo usuario"
-msgstr ""
+msgstr "Criar novo usuário"
 
 #: app/templates/auth/admin_crear_usuario.html:26
 msgid "Ej: Ana María García"
-msgstr ""
+msgstr "Ex.: Ana María García"
 
 #: app/templates/auth/admin_crear_usuario.html:34
 msgid "Ej: ana@correo.com"
-msgstr ""
+msgstr "Ex.: ana@email.com"
 
 #: app/templates/auth/admin_crear_usuario.html:42
 msgid "Ej: anagarcia"
-msgstr ""
+msgstr "Ex.: anagarcia"
 
 #: app/templates/auth/admin_crear_usuario.html:50
-#: app/templates/auth/register.html:262
-#: app/templates/auth/reset_password.html:219
+#: app/templates/auth/register.html:471
+#: app/templates/auth/reset_password.html:450
 msgid "Mínimo 6 caracteres"
-msgstr ""
+msgstr "Mínimo de 6 caracteres"
 
 #: app/templates/auth/admin_crear_usuario.html:58
-#: app/templates/auth/register.html:266
-#: app/templates/auth/reset_password.html:224
+#: app/templates/auth/register.html:476
+#: app/templates/auth/reset_password.html:456
 msgid "Repite la contraseña"
-msgstr ""
-
-#: app/templates/auth/admin_crear_usuario.html:66
-msgid "Crear usuario"
-msgstr ""
+msgstr "Repita a senha"
 
 #: app/templates/auth/admin_crear_usuario.html:69
 #: app/templates/auth/perfil.html:90
@@ -194,56 +509,51 @@ msgstr ""
 #: app/templates/movimientos/delete.html:11
 #: app/templates/movimientos/edit.html:66
 msgid "Cancelar"
-msgstr ""
+msgstr "Cancelar"
 
 #: app/templates/auth/admin_usuarios.html:2
 #: app/templates/auth/admin_usuarios.html:3
 msgid "Administrar Usuarios"
-msgstr ""
+msgstr "Gerenciar usuários"
 
 #: app/templates/auth/admin_usuarios.html:8
 msgid "Gestión de usuarios del sistema"
-msgstr ""
+msgstr "Gestão de usuários do sistema"
 
 #: app/templates/auth/admin_usuarios.html:16
 #: app/templates/auth/configuracion.html:17
 msgid "Usuarios registrados"
-msgstr ""
+msgstr "Usuários cadastrados"
 
 #: app/templates/auth/admin_usuarios.html:22
 #: app/templates/auth/configuracion.html:23 app/templates/insumos/index.html:89
 #: app/templates/main/dashboard.html:246
 #: app/templates/movimientos/index.html:61
 msgid "ID"
-msgstr ""
-
-#: app/templates/auth/admin_usuarios.html:23
-#: app/templates/auth/configuracion.html:24 app/templates/auth/perfil.html:34
-msgid "Usuario"
-msgstr ""
+msgstr "ID"
 
 #: app/templates/auth/admin_usuarios.html:24
 #: app/templates/auth/configuracion.html:25
 #: app/templates/clienteproveedor/index.html:68
 msgid "Nombre"
-msgstr ""
+msgstr "Nome"
 
 #: app/templates/auth/admin_usuarios.html:25
 #: app/templates/auth/configuracion.html:26
 msgid "Correo"
-msgstr ""
+msgstr "E-mail"
 
 #: app/templates/auth/admin_usuarios.html:26
 #: app/templates/auth/configuracion.html:27 app/templates/auth/perfil.html:38
 msgid "Rol"
-msgstr ""
+msgstr "Função"
 
 #: app/templates/auth/admin_usuarios.html:27
 #: app/templates/auth/configuracion.html:28
 #: app/templates/facturas/index.html:64 app/templates/insumos/create.html:167
 #: app/templates/insumos/edit.html:152 app/templates/insumos/index.html:101
 msgid "Estado"
-msgstr ""
+msgstr "Status"
 
 #: app/templates/auth/admin_usuarios.html:28
 #: app/templates/auth/configuracion.html:29
@@ -251,1298 +561,1165 @@ msgstr ""
 #: app/templates/facturas/index.html:68 app/templates/insumos/index.html:102
 #: app/templates/lotes/index.html:75 app/templates/movimientos/index.html:70
 msgid "Acciones"
-msgstr ""
-
-#: app/templates/auth/admin_usuarios.html:45
-#: app/templates/auth/configuracion.html:46
-#: app/templates/insumos/index.html:159
-msgid "Activo"
-msgstr ""
+msgstr "Ações"
 
 #: app/templates/auth/admin_usuarios.html:45
 #: app/templates/auth/configuracion.html:46
 #: app/templates/insumos/index.html:161
 msgid "Inactivo"
-msgstr ""
+msgstr "Inativo"
 
 #: app/templates/auth/admin_usuarios.html:52
 #: app/templates/auth/configuracion.html:87
 msgid "¿Resetear contraseña de este usuario?"
-msgstr ""
+msgstr "Redefinir a senha deste usuário?"
 
 #: app/templates/auth/admin_usuarios.html:54
 #: app/templates/auth/configuracion.html:88
 msgid "Resetear"
-msgstr ""
+msgstr "Redefinir"
 
 #: app/templates/auth/configuracion.html:9
 msgid "Administra los usuarios del sistema"
-msgstr ""
+msgstr "Gerenciar usuários do sistema"
 
 #: app/templates/auth/configuracion.html:60
 msgid "¿Cambiar rol de este usuario?"
-msgstr ""
+msgstr "Alterar a função deste usuário?"
 
 #: app/templates/auth/configuracion.html:62
 msgid "Hacer usuario"
-msgstr ""
+msgstr "Tornar usuário"
 
 #: app/templates/auth/configuracion.html:62
 msgid "Hacer admin"
-msgstr ""
+msgstr "Tornar administrador"
 
 #: app/templates/auth/configuracion.html:72
 msgid "¿Cambiar estado de este usuario?"
-msgstr ""
+msgstr "Alterar o status deste usuário?"
 
 #: app/templates/auth/configuracion.html:74
 msgid "Desactivar"
-msgstr ""
+msgstr "Desativar"
 
 #: app/templates/auth/configuracion.html:74
 msgid "Activar"
-msgstr ""
+msgstr "Ativar"
 
 #: app/templates/auth/configuracion.html:79
 msgid "Tu cuenta"
-msgstr ""
+msgstr "Sua conta"
 
-#: app/templates/auth/forgot_password.html:5
+#: app/templates/auth/forgot_password.html:6
 msgid "Nuée — Recuperar contraseña"
-msgstr ""
+msgstr "Nuée — Redefinir senha"
 
-#: app/templates/auth/forgot_password.html:202
-msgid "Te enviaremos un código de 6 dígitos"
-msgstr ""
+#: app/templates/auth/forgot_password.html:396
+msgid "Recuperar contraseña"
+msgstr "Recuperar senha"
 
-#: app/templates/auth/forgot_password.html:219
-#: app/templates/auth/register.html:253
-msgid "Correo electrónico"
-msgstr ""
+#: app/templates/auth/forgot_password.html:398
+msgid "¿Perdiste tu contraseña?"
+msgstr "Perdeu sua senha?"
 
-#: app/templates/auth/forgot_password.html:223
+#: app/templates/auth/forgot_password.html:400
+msgid "Te enviaremos un código de 6 dígitos a tu correo para restablecerla."
+msgstr "Enviaremos um código de 6 dígitos para o seu e-mail para redefini-la."
+
+#: app/templates/auth/forgot_password.html:430
+msgid "Ingresa tu correo registrado"
+msgstr "Digite seu e-mail cadastrado"
+
+#: app/templates/auth/forgot_password.html:453
 msgid "Enviar código"
-msgstr ""
+msgstr "Enviar código"
 
-#: app/templates/auth/forgot_password.html:228
-#: app/templates/auth/register.html:274
-#: app/templates/auth/reset_password.html:233
+#: app/templates/auth/forgot_password.html:458
+#: app/templates/auth/register.html:485
+#: app/templates/auth/reset_password.html:465
 msgid "Volver al login"
-msgstr ""
+msgstr "Voltar ao login"
 
 #: app/templates/auth/perfil.html:2 app/templates/auth/perfil.html:3
 msgid "Mi Perfil"
-msgstr ""
+msgstr "Meu perfil"
 
 #: app/templates/auth/perfil.html:11
 msgid "Edita tu información personal"
-msgstr ""
+msgstr "Edite suas informações pessoais"
 
 #: app/templates/auth/perfil.html:16
 msgid "Información del usuario"
-msgstr ""
+msgstr "Informações do usuário"
 
 #: app/templates/auth/perfil.html:51
 msgid "Tu nombre completo"
-msgstr ""
+msgstr "Seu nome completo"
 
 #: app/templates/auth/perfil.html:68
 msgid "Deja estos campos vacíos si no quieres cambiar tu contraseña."
-msgstr ""
+msgstr "Deixe estes campos vazios se não quiser alterar sua senha."
 
 #: app/templates/auth/perfil.html:73
 msgid "Nueva contraseña (mínimo 6 caracteres)"
-msgstr ""
+msgstr "Nova senha (mínimo de 6 caracteres)"
 
 #: app/templates/auth/perfil.html:81
 msgid "Repite la nueva contraseña"
-msgstr ""
+msgstr "Repita a nova senha"
 
-#: app/templates/auth/register.html:5
+#: app/templates/auth/register.html:6
 msgid "Nuée — Crear cuenta"
-msgstr ""
+msgstr "Nuée — Criar conta"
 
-#: app/templates/auth/register.html:236
+#: app/templates/auth/register.html:405
+msgid "Bienvenido a Nuée"
+msgstr "Bem-vindo ao Nuée"
+
+#: app/templates/auth/register.html:439
 msgid "Crear nueva cuenta"
-msgstr ""
+msgstr "Criar nova conta"
 
-#: app/templates/auth/register.html:249
-msgid "Nombre completo"
-msgstr ""
-
-#: app/templates/auth/register.html:250
+#: app/templates/auth/register.html:456
 msgid "Ana María García"
-msgstr ""
+msgstr "Ana María García"
 
-#: app/templates/auth/register.html:254
+#: app/templates/auth/register.html:461
 msgid "ana@correo.com"
-msgstr ""
+msgstr "ana@email.com"
 
-#: app/templates/auth/register.html:257
-msgid "Nombre de usuario"
-msgstr ""
-
-#: app/templates/auth/register.html:265
-#: app/templates/auth/reset_password.html:222
-msgid "Confirmar contraseña"
-msgstr ""
-
-#: app/templates/auth/reset_password.html:5
+#: app/templates/auth/reset_password.html:6
 msgid "Nuée — Nueva contraseña"
-msgstr ""
+msgstr "Nuée — Nova senha"
 
-#: app/templates/auth/reset_password.html:200
-msgid "Elige una contraseña segura"
-msgstr ""
-
-#: app/templates/auth/reset_password.html:217
+#: app/templates/auth/reset_password.html:396
+#: app/templates/auth/reset_password.html:448
 msgid "Nueva contraseña"
-msgstr ""
+msgstr "Nova senha"
 
-#: app/templates/auth/reset_password.html:228
+#: app/templates/auth/reset_password.html:398
+msgid "Un nuevo comienzo."
+msgstr "Um novo começo."
+
+#: app/templates/auth/reset_password.html:400
+msgid "Elige una contraseña segura y vuelve a tu cielo despejado."
+msgstr "Escolha uma senha segura e volte ao seu céu limpo."
+
+#: app/templates/auth/reset_password.html:430
+msgid "Elige una contraseña segura"
+msgstr "Escolha uma senha segura"
+
+#: app/templates/auth/reset_password.html:460
 msgid "Guardar contraseña"
-msgstr ""
+msgstr "Salvar senha"
 
-#: app/templates/auth/verify_code.html:5
+#: app/templates/auth/verify_code.html:6
 msgid "Nuée — Verificar código"
-msgstr ""
+msgstr "Nuée — Verificar código"
 
-#: app/templates/auth/verify_code.html:204
+#: app/templates/auth/verify_code.html:400
+msgid "Verificación"
+msgstr "Verificação"
+
+#: app/templates/auth/verify_code.html:402
+msgid "Revisa tu bandeja de entrada."
+msgstr "Confira sua caixa de entrada."
+
+#: app/templates/auth/verify_code.html:404
+msgid "Escribe el código de 6 dígitos que enviamos a tu correo."
+msgstr "Digite o código de 6 dígitos que enviamos para o seu e-mail."
+
+#: app/templates/auth/verify_code.html:434
 msgid "Revisa tu correo y escribe el código de 6 dígitos"
-msgstr ""
+msgstr "Confira seu e-mail e digite o código de 6 dígitos"
 
-#: app/templates/auth/verify_code.html:222
+#: app/templates/auth/verify_code.html:453
 msgid "Código de verificación"
-msgstr ""
+msgstr "Código de verificação"
 
-#: app/templates/auth/verify_code.html:229
+#: app/templates/auth/verify_code.html:460
 msgid "Verificar código"
-msgstr ""
+msgstr "Verificar código"
 
-#: app/templates/auth/verify_code.html:235
+#: app/templates/auth/verify_code.html:465
 msgid "Solicitar nuevo código"
-msgstr ""
+msgstr "Solicitar novo código"
 
 #: app/templates/clienteproveedor/create.html:2
 #: app/templates/clienteproveedor/index.html:16
 #: app/templates/clienteproveedor/index.html:128
 msgid "Nuevo Contacto"
-msgstr ""
+msgstr "Novo contato"
 
 #: app/templates/clienteproveedor/create.html:3
 msgid "Registrar Nuevo Contacto"
-msgstr ""
-
-#: app/templates/clienteproveedor/create.html:16
-#: app/templates/clienteproveedor/index.html:137
-msgid "Tipo de Contacto"
-msgstr ""
-
-#: app/templates/clienteproveedor/create.html:23
-#: app/templates/clienteproveedor/edit.html:78
-#: app/templates/clienteproveedor/index.html:87
-#: app/templates/clienteproveedor/index.html:143
-#: app/templates/facturas/index.html:59 app/templates/facturas/nueva.html:239
-#: app/templates/facturas/nueva.html:334
-#: app/templates/movimientos/create.html:12
-msgid "Cliente"
-msgstr ""
-
-#: app/templates/clienteproveedor/create.html:30
-#: app/templates/clienteproveedor/edit.html:84
-#: app/templates/clienteproveedor/index.html:89
-#: app/templates/clienteproveedor/index.html:150
-#: app/templates/facturas/nueva.html:240 app/templates/facturas/nueva.html:334
-#: app/templates/lotes/create.html:34 app/templates/lotes/index.html:70
-msgid "Proveedor"
-msgstr ""
+msgstr "Cadastrar novo contato"
 
 #: app/templates/clienteproveedor/create.html:39
 msgid "Identificación"
-msgstr ""
-
-#: app/templates/clienteproveedor/create.html:44
-#: app/templates/clienteproveedor/edit.html:21
-#: app/templates/facturas/nueva.html:67 app/templates/facturas/nueva.html:219
-msgid "Tipo de Identificación"
-msgstr ""
+msgstr "Identificação"
 
 #: app/templates/clienteproveedor/create.html:47
 msgid "Cédula (CC)"
-msgstr ""
+msgstr "Cédula de identidade (CC)"
 
 #: app/templates/clienteproveedor/create.html:48
 msgid "Cédula Extranjería (CE)"
-msgstr ""
-
-#: app/templates/clienteproveedor/create.html:49
-msgid "Pasaporte (PP)"
-msgstr ""
+msgstr "Documento de estrangeiro (CE)"
 
 #: app/templates/clienteproveedor/create.html:55
 msgid "Número"
-msgstr ""
+msgstr "Número"
 
 #: app/templates/clienteproveedor/create.html:70
 msgid "Datos del Contacto"
-msgstr ""
-
-#: app/templates/clienteproveedor/create.html:76
-#: app/templates/facturas/nueva.html:248
-msgid "Nombre / Razón Social"
-msgstr ""
-
-#: app/templates/clienteproveedor/create.html:86
-#: app/templates/clienteproveedor/edit.html:50
-#: app/templates/clienteproveedor/index.html:69
-#: app/templates/facturas/nueva.html:87 app/templates/facturas/nueva.html:265
-msgid "Dirección"
-msgstr ""
-
-#: app/templates/clienteproveedor/create.html:95
-#: app/templates/clienteproveedor/index.html:70
-#: app/templates/facturas/nueva.html:255
-msgid "Celular"
-msgstr ""
-
-#: app/templates/clienteproveedor/create.html:104
-#: app/templates/clienteproveedor/edit.html:63
-#: app/templates/facturas/nueva.html:95 app/templates/facturas/nueva.html:271
-msgid "Correo Electrónico"
-msgstr ""
+msgstr "Dados de contato"
 
 #: app/templates/clienteproveedor/create.html:110
 #: app/templates/clienteproveedor/index.html:192
 msgid "Opcional — usado para envío de facturas"
-msgstr ""
+msgstr "Opcional — usado para enviar faturas"
 
 #: app/templates/clienteproveedor/create.html:118
 #: app/templates/clienteproveedor/index.html:200
 msgid "Guardar Contacto"
-msgstr ""
+msgstr "Salvar contato"
 
 #: app/templates/clienteproveedor/edit.html:2
 #: app/templates/clienteproveedor/edit.html:3
 msgid "Editar Contacto"
-msgstr ""
+msgstr "Editar contato"
 
 #: app/templates/clienteproveedor/edit.html:12
 msgid "Editar Información"
-msgstr ""
+msgstr "Editar informações"
 
 #: app/templates/clienteproveedor/edit.html:28
 #: app/templates/facturas/nueva.html:70 app/templates/facturas/nueva.html:223
 msgid "Cédula de Ciudadanía"
-msgstr ""
+msgstr "Cédula de identidade"
 
 #: app/templates/clienteproveedor/edit.html:31
 #: app/templates/facturas/nueva.html:71 app/templates/facturas/nueva.html:224
 msgid "Cédula de Extranjería"
-msgstr ""
-
-#: app/templates/clienteproveedor/edit.html:35
-#: app/templates/facturas/nueva.html:78 app/templates/facturas/nueva.html:229
-msgid "Número de Identificación"
-msgstr ""
+msgstr "Documento de estrangeiro"
 
 #: app/templates/clienteproveedor/edit.html:43
 msgid "Nombre completo / Razón Social"
-msgstr ""
+msgstr "Nome completo / Razão social"
 
 #: app/templates/clienteproveedor/edit.html:55
 msgid "Teléfono / Celular"
-msgstr ""
+msgstr "Telefone / Celular"
 
 #: app/templates/clienteproveedor/edit.html:72
 msgid "Tipo de contacto"
-msgstr ""
+msgstr "Tipo de contato"
 
 #: app/templates/clienteproveedor/edit.html:92
 #: app/templates/insumos/edit.html:168
 msgid "Guardar Cambios"
-msgstr ""
+msgstr "Salvar alterações"
 
 #: app/templates/clienteproveedor/index.html:3
 msgid "Gestión de Clientes y Proveedores"
-msgstr ""
+msgstr "Gestão de clientes e fornecedores"
 
 #: app/templates/clienteproveedor/index.html:7
 msgid "¿Estás seguro de eliminar este contacto?"
-msgstr ""
+msgstr "Tem certeza de que deseja excluir este contato?"
 
 #: app/templates/clienteproveedor/index.html:12
 msgid "Administra tus contactos comerciales"
-msgstr ""
+msgstr "Gerencie os contatos do seu negócio"
 
 #: app/templates/clienteproveedor/index.html:23
 msgid "Total Contactos"
-msgstr ""
+msgstr "Total de contatos"
 
 #: app/templates/clienteproveedor/index.html:32
 msgid "Clientes"
-msgstr ""
+msgstr "Clientes"
 
 #: app/templates/clienteproveedor/index.html:38
 msgid "Proveedores"
-msgstr ""
+msgstr "Fornecedores"
 
 #: app/templates/clienteproveedor/index.html:46
 msgid "Listado de Contactos"
-msgstr ""
+msgstr "Lista de contatos"
 
 #: app/templates/clienteproveedor/index.html:51
 #: app/templates/facturas/nueva.html:40
 msgid "Escribe nombre o NIT..."
-msgstr ""
+msgstr "Buscar por nome ou documento..."
 
 #: app/templates/clienteproveedor/index.html:67
 msgid "NIT"
-msgstr ""
+msgstr "NIT"
 
 #: app/templates/clienteproveedor/index.html:71
 #: app/templates/facturas/nueva.html:236
 #: app/templates/movimientos/index.html:62
 msgid "Tipo"
-msgstr ""
+msgstr "Tipo"
 
 #: app/templates/clienteproveedor/index.html:97
 #: app/templates/insumos/index.html:167
 msgid "Editar"
-msgstr ""
+msgstr "Editar"
 
 #: app/templates/clienteproveedor/index.html:101
 #: app/templates/facturas/index.html:184 app/templates/insumos/index.html:183
 msgid "Eliminar"
-msgstr ""
+msgstr "Excluir"
 
 #: app/templates/clienteproveedor/index.html:112
 msgid "No hay contactos registrados"
-msgstr ""
+msgstr "Nenhum contato cadastrado"
 
 #: app/templates/clienteproveedor/index.html:246
 msgid "No se encontraron contactos"
-msgstr ""
+msgstr "Nenhum contato encontrado"
 
 #: app/templates/clienteproveedor/index.html:300
 msgid "Error al eliminar:"
-msgstr ""
+msgstr "Erro ao excluir:"
 
 #: app/templates/clienteproveedor/index.html:300
 msgid "Error desconocido"
-msgstr ""
+msgstr "Erro desconhecido"
 
 #: app/templates/clienteproveedor/index.html:302
 msgid "Error al eliminar el contacto"
-msgstr ""
+msgstr "Erro ao excluir o contato"
 
 #: app/templates/facturas/index.html:7
 msgid "¿Eliminar la factura"
-msgstr ""
+msgstr "Excluir fatura"
 
 #: app/templates/facturas/index.html:10
 msgid "Administra las facturas de venta"
-msgstr ""
+msgstr "Gerencie suas faturas de venda"
 
 #: app/templates/facturas/index.html:12 app/templates/facturas/nueva.html:2
 #: app/templates/facturas/nueva.html:3
 msgid "Nueva Factura"
-msgstr ""
+msgstr "Nova fatura"
 
 #: app/templates/facturas/index.html:19
 msgid "Total Facturas"
-msgstr ""
+msgstr "Total de faturas"
 
 #: app/templates/facturas/index.html:25
 msgid "Pendientes"
-msgstr ""
+msgstr "Pendentes"
 
 #: app/templates/facturas/index.html:31
 msgid "Pagadas"
-msgstr ""
+msgstr "Pagas"
 
 #: app/templates/facturas/index.html:37
 msgid "Anuladas"
-msgstr ""
+msgstr "Canceladas"
 
 #: app/templates/facturas/index.html:45
 msgid "Listado de Facturas"
-msgstr ""
+msgstr "Lista de faturas"
 
 #: app/templates/facturas/index.html:49
 msgid "Buscar por N°, cliente, estado..."
-msgstr ""
-
-#: app/templates/facturas/index.html:57 app/templates/insumos/create.html:23
-#: app/templates/insumos/delete.html:22 app/templates/insumos/edit.html:23
-#: app/templates/insumos/index.html:90
-msgid "Código"
-msgstr ""
+msgstr "Buscar por nº, cliente, status..."
 
 #: app/templates/facturas/index.html:58
 msgid "N° Factura"
-msgstr ""
+msgstr "Nº da fatura"
 
 #: app/templates/facturas/index.html:60 app/templates/main/dashboard.html:250
 #: app/templates/movimientos/index.html:67
 msgid "Fecha"
-msgstr ""
+msgstr "Data"
 
 #: app/templates/facturas/index.html:61 app/templates/facturas/nueva.html:149
 #: app/templates/movimientos/create.html:400
 msgid "Subtotal"
-msgstr ""
+msgstr "Subtotal"
 
 #: app/templates/facturas/index.html:62 app/templates/insumos/index.html:95
 msgid "IVA"
-msgstr ""
+msgstr "IVA"
 
 #: app/templates/facturas/index.html:63
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: app/templates/facturas/index.html:66 app/templates/insumos/index.html:99
 msgid "Registrado por"
-msgstr ""
+msgstr "Registrado por"
 
 #: app/templates/facturas/index.html:100 app/templates/facturas/index.html:162
 msgid "Pagada"
-msgstr ""
+msgstr "Paga"
 
 #: app/templates/facturas/index.html:102 app/templates/facturas/index.html:152
 msgid "Pendiente"
-msgstr ""
+msgstr "Pendente"
 
 #: app/templates/facturas/index.html:104 app/templates/facturas/index.html:172
 msgid "Anulada"
-msgstr ""
+msgstr "Cancelada"
 
 #: app/templates/facturas/index.html:122
 msgid "Descargar PDF"
-msgstr ""
+msgstr "Baixar PDF"
 
 #: app/templates/facturas/index.html:131
 msgid "Reenviar por correo"
-msgstr ""
+msgstr "Reenviar por e-mail"
 
 #: app/templates/facturas/index.html:133
 msgid "El cliente no tiene correo registrado"
-msgstr ""
+msgstr "O cliente não tem e-mail cadastrado"
 
 #: app/templates/facturas/index.html:142
 msgid "Cambiar estado"
-msgstr ""
+msgstr "Alterar status"
 
 #: app/templates/facturas/index.html:199
 msgid "No hay facturas registradas"
-msgstr ""
+msgstr "Nenhuma fatura cadastrada"
 
 #: app/templates/facturas/nueva.html:8
 msgid "Registra una nueva factura de venta"
-msgstr ""
+msgstr "Registrar uma nova fatura de venda"
 
 #: app/templates/facturas/nueva.html:10 app/templates/lotes/index.html:20
 msgid "Volver"
-msgstr ""
+msgstr "Voltar"
 
 #: app/templates/facturas/nueva.html:21
 msgid "Datos de Facturación"
-msgstr ""
+msgstr "Dados de faturamento"
 
 #: app/templates/facturas/nueva.html:24 app/templates/facturas/nueva.html:200
 #: app/templates/facturas/nueva.html:320 app/templates/facturas/nueva.html:344
 msgid "Crear nuevo cliente"
-msgstr ""
+msgstr "Criar novo cliente"
 
 #: app/templates/facturas/nueva.html:25
 msgid "Nuevo cliente"
-msgstr ""
+msgstr "Novo cliente"
 
 #: app/templates/facturas/nueva.html:33
 msgid "Razón Social / Nombre"
-msgstr ""
+msgstr "Razão social / Nome"
 
 #: app/templates/facturas/nueva.html:46 app/templates/insumos/index.html:54
 #: app/templates/main/dashboard.html:238
 msgid "Ver todos"
-msgstr ""
+msgstr "Ver todos"
 
 #: app/templates/facturas/nueva.html:59
 msgid "Cambiar"
-msgstr ""
+msgstr "Alterar"
 
 #: app/templates/facturas/nueva.html:81
 msgid "Se autocompleta"
-msgstr ""
+msgstr "Preenchido automaticamente"
 
 #: app/templates/facturas/nueva.html:89 app/templates/facturas/nueva.html:99
 msgid "Se autocompleta al seleccionar cliente"
-msgstr ""
-
-#: app/templates/facturas/nueva.html:103
-#: app/templates/movimientos/create.html:149
-#: app/templates/movimientos/edit.html:54
-msgid "Observaciones"
-msgstr ""
+msgstr "Preenchido automaticamente ao selecionar o cliente"
 
 #: app/templates/facturas/nueva.html:105
 #: app/templates/movimientos/create.html:151
 msgid "Notas adicionales..."
-msgstr ""
+msgstr "Observações adicionais..."
 
 #: app/templates/facturas/nueva.html:116
 msgid "Este cliente no tiene correo — la factura no se enviará automáticamente."
-msgstr ""
+msgstr "Este cliente não tem e-mail — a fatura não será enviada automaticamente."
 
 #: app/templates/facturas/nueva.html:119
 msgid "Agrégalo aquí"
-msgstr ""
+msgstr "Adicione aqui"
 
 #: app/templates/facturas/nueva.html:137
 msgid "Agregar producto"
-msgstr ""
+msgstr "Adicionar produto"
 
 #: app/templates/facturas/nueva.html:145 app/templates/facturas/nueva.html:482
 #: app/templates/main/dashboard.html:198 app/templates/main/dashboard.html:247
 #: app/templates/movimientos/index.html:64
 msgid "Producto"
-msgstr ""
-
-#: app/templates/facturas/nueva.html:146 app/templates/lotes/create.html:47
-#: app/templates/lotes/index.html:71 app/templates/main/dashboard.html:248
-#: app/templates/movimientos/create.html:375
-#: app/templates/movimientos/edit.html:28
-msgid "Cantidad"
-msgstr ""
+msgstr "Produto"
 
 #: app/templates/facturas/nueva.html:147
 msgid "Precio Unit."
-msgstr ""
-
-#: app/templates/facturas/nueva.html:148 app/templates/insumos/create.html:111
-#: app/templates/insumos/edit.html:99
-msgid "IVA %"
-msgstr ""
+msgstr "Preço unitário"
 
 #: app/templates/facturas/nueva.html:166
 msgid "Guardar Factura"
-msgstr ""
+msgstr "Salvar fatura"
 
 #: app/templates/facturas/nueva.html:173
 #: app/templates/movimientos/create.html:162
 msgid "Subtotal:"
-msgstr ""
+msgstr "Subtotal:"
 
 #: app/templates/facturas/nueva.html:177
 #: app/templates/movimientos/create.html:166
 msgid "IVA:"
-msgstr ""
+msgstr "IVA:"
 
 #: app/templates/facturas/nueva.html:182
 msgid "Total:"
-msgstr ""
+msgstr "Total:"
 
 #: app/templates/facturas/nueva.html:251
 msgid "Nombre completo o razón social"
-msgstr ""
+msgstr "Nome completo ou razão social"
 
 #: app/templates/facturas/nueva.html:268
 msgid "Dirección de correspondencia"
-msgstr ""
+msgstr "Endereço de e-mail"
 
 #: app/templates/facturas/nueva.html:274
 msgid "Se usará para enviar la factura."
-msgstr ""
+msgstr "Será usado para enviar a fatura."
 
 #: app/templates/facturas/nueva.html:285 app/templates/facturas/nueva.html:468
 msgid "Crear cliente"
-msgstr ""
+msgstr "Criar cliente"
 
 #: app/templates/facturas/nueva.html:314
 msgid "No se encontraron clientes"
-msgstr ""
+msgstr "Nenhum cliente encontrado"
 
 #: app/templates/facturas/nueva.html:440
 msgid "Completa todos los campos obligatorios."
-msgstr ""
+msgstr "Preencha todos os campos obrigatórios."
 
 #: app/templates/facturas/nueva.html:445
 msgid "Guardando..."
-msgstr ""
+msgstr "Salvando..."
 
 #: app/templates/facturas/nueva.html:455
 msgid "Error al crear el cliente."
-msgstr ""
+msgstr "Erro ao criar o cliente."
 
 #: app/templates/facturas/nueva.html:464
 msgid "Error de conexión. Intenta de nuevo."
-msgstr ""
+msgstr "Erro de conexão. Tente novamente."
 
 #: app/templates/facturas/nueva.html:531
 msgid "Sin stock"
-msgstr ""
+msgstr "Sem estoque"
 
 #: app/templates/facturas/nueva.html:584
 msgid "Selecciona un cliente antes de guardar."
-msgstr ""
+msgstr "Selecione um cliente antes de salvar."
 
 #: app/templates/facturas/nueva.html:590
 msgid "Agrega al menos un producto."
-msgstr ""
+msgstr "Adicione pelo menos um produto."
 
 #: app/templates/insumos/create.html:2
 msgid "Nuevo Producto"
-msgstr ""
+msgstr "Novo produto"
 
 #: app/templates/insumos/create.html:3
 msgid "Registrar Nuevo Insumo"
-msgstr ""
+msgstr "Cadastrar novo produto"
 
 #: app/templates/insumos/create.html:17 app/templates/insumos/edit.html:17
 msgid "Información del Producto"
-msgstr ""
+msgstr "Informações do produto"
 
 #: app/templates/insumos/create.html:29 app/templates/insumos/edit.html:29
 msgid "Código único del producto"
-msgstr ""
-
-#: app/templates/insumos/create.html:37 app/templates/insumos/edit.html:34
-#: app/templates/insumos/index.html:92
-msgid "Lote"
-msgstr ""
+msgstr "Código único do produto"
 
 #: app/templates/insumos/create.html:43 app/templates/insumos/edit.html:40
 msgid "Número de lote del fabricante"
-msgstr ""
+msgstr "Número do lote do fabricante"
 
 #: app/templates/insumos/create.html:51 app/templates/insumos/edit.html:45
 msgid "Descripción / Nombre"
-msgstr ""
+msgstr "Descrição / Nome"
 
 #: app/templates/insumos/create.html:68 app/templates/insumos/edit.html:59
 msgid "Detalles y Precios"
-msgstr ""
+msgstr "Detalhes e preços"
 
 #: app/templates/insumos/create.html:74 app/templates/insumos/edit.html:65
 msgid "Registro Sanitario"
-msgstr ""
+msgstr "Registro sanitário"
 
 #: app/templates/insumos/create.html:80 app/templates/insumos/edit.html:71
 msgid "Opcional — Registro sanitario"
-msgstr ""
-
-#: app/templates/insumos/create.html:85 app/templates/insumos/edit.html:76
-#: app/templates/lotes/create.html:79
-msgid "Fecha de Vencimiento"
-msgstr ""
+msgstr "Opcional — registro sanitário"
 
 #: app/templates/insumos/create.html:92 app/templates/insumos/edit.html:83
-#, fuzzy
 msgid "Producto vencido"
-msgstr ""
+msgstr "Produto vencido"
 
 #: app/templates/insumos/create.html:98 app/templates/insumos/edit.html:89
 msgid "Valor Unitario"
-msgstr ""
+msgstr "Preço unitário"
 
 #: app/templates/insumos/create.html:119 app/templates/insumos/edit.html:109
-msgid "Aplica IVA (19%)"
-msgstr ""
+#, python-format
+msgid "Aplica IVA (19%%)"
+msgstr "Aplicar IVA (19%%)"
 
 #: app/templates/insumos/create.html:125 app/templates/insumos/edit.html:115
 msgid "Precio Final"
-msgstr ""
+msgstr "Preço final"
 
 #: app/templates/insumos/create.html:133 app/templates/insumos/edit.html:125
 msgid "Valor + IVA"
-msgstr ""
+msgstr "Preço + IVA"
 
 #: app/templates/insumos/create.html:139
 msgid "Cantidad Inicial"
-msgstr ""
+msgstr "Quantidade inicial"
 
 #: app/templates/insumos/create.html:145
 msgid "Unidades disponibles al registrar"
-msgstr ""
-
-#: app/templates/insumos/create.html:153
-msgid "Stock Mínimo"
-msgstr ""
+msgstr "Unidades disponíveis no cadastro"
 
 #: app/templates/insumos/create.html:159
 msgid "Alerta cuando el stock baje de este número"
-msgstr ""
+msgstr "Alertar quando o estoque ficar abaixo deste número"
 
 #: app/templates/insumos/create.html:171
 msgid "Producto activo"
-msgstr ""
+msgstr "Produto ativo"
 
 #: app/templates/insumos/create.html:183
 msgid "Guardar Insumo"
-msgstr ""
+msgstr "Salvar produto"
 
 #: app/templates/insumos/delete.html:2 app/templates/insumos/delete.html:3
 msgid "Eliminar Insumo"
-msgstr ""
+msgstr "Excluir produto"
 
 #: app/templates/insumos/delete.html:13
 msgid "Confirmar eliminación"
-msgstr ""
+msgstr "Confirmar exclusão"
 
 #: app/templates/insumos/delete.html:17
 msgid "¿Seguro que deseas eliminar el siguiente insumo?"
-msgstr ""
-
-#: app/templates/insumos/delete.html:25 app/templates/insumos/index.html:91
-msgid "Descripción"
-msgstr ""
+msgstr "Tem certeza de que deseja excluir este produto?"
 
 #: app/templates/insumos/delete.html:28 app/templates/insumos/index.html:96
 msgid "Stock"
-msgstr ""
+msgstr "Estoque"
 
 #: app/templates/insumos/delete.html:37
 #: app/templates/movimientos/delete.html:10
 msgid "Sí, eliminar"
-msgstr ""
+msgstr "Sim, excluir"
 
 #: app/templates/insumos/edit.html:2
 msgid "Editar Producto"
-msgstr ""
+msgstr "Editar produto"
 
 #: app/templates/insumos/edit.html:3
 msgid "Editar Insumo"
-msgstr ""
+msgstr "Editar produto"
 
 #: app/templates/insumos/edit.html:131
 msgid "Stock actual"
-msgstr ""
+msgstr "Estoque atual"
 
 #: app/templates/insumos/edit.html:141
 msgid "Stock mínimo"
-msgstr ""
+msgstr "Estoque mínimo"
 
 #: app/templates/insumos/edit.html:147
 msgid "Alerta cuando el stock sea menor a este valor"
-msgstr ""
+msgstr "Alertar quando o estoque ficar abaixo deste valor"
 
 #: app/templates/insumos/edit.html:156
 msgid "Insumo activo"
-msgstr ""
+msgstr "Produto ativo"
 
 #: app/templates/insumos/index.html:3
 msgid "Gestión de Insumos"
-msgstr ""
+msgstr "Gestão de produtos"
 
 #: app/templates/insumos/index.html:9
 msgid "Administra el inventario de productos"
-msgstr ""
+msgstr "Gerencie seu inventário de produtos"
 
 #: app/templates/insumos/index.html:11
 msgid "Nuevo Insumo"
-msgstr ""
+msgstr "Novo produto"
 
 #: app/templates/insumos/index.html:18
 msgid "Total Insumos"
-msgstr ""
+msgstr "Total de produtos"
 
 #: app/templates/insumos/index.html:24 app/templates/insumos/index.html:73
 msgid "Activos"
-msgstr ""
+msgstr "Ativos"
 
 #: app/templates/insumos/index.html:30 app/templates/lotes/index.html:43
-#, fuzzy
 msgid "Por Vencer"
-msgstr ""
+msgstr "Vencendo em breve"
 
 #: app/templates/insumos/index.html:36
-#, fuzzy
 msgid "Stock Bajo"
-msgstr ""
+msgstr "Estoque baixo"
 
 #: app/templates/insumos/index.html:44
 msgid "Listado de Insumos"
-msgstr ""
+msgstr "Lista de produtos"
 
 #: app/templates/insumos/index.html:49
 msgid "Buscar por código o descripción..."
-msgstr ""
+msgstr "Buscar por código ou descrição..."
 
 #: app/templates/insumos/index.html:68
 msgid "Todos"
-msgstr ""
+msgstr "Todos"
 
 #: app/templates/insumos/index.html:78
 msgid "Inactivos"
-msgstr ""
+msgstr "Inativos"
 
 #: app/templates/insumos/index.html:93
 msgid "INVIMA"
-msgstr ""
-
-#: app/templates/insumos/index.html:94
-msgid "Valor"
-msgstr ""
+msgstr "Reg. sanitário"
 
 #: app/templates/insumos/index.html:97 app/templates/lotes/index.html:74
 #: app/templates/movimientos/create.html:393
 msgid "Vencimiento"
-msgstr ""
+msgstr "Validade"
 
 #: app/templates/insumos/index.html:174
 msgid "¿Inactivar este insumo?"
-msgstr ""
+msgstr "Desativar este produto?"
 
 #: app/templates/insumos/index.html:177
 msgid "Inactivar"
-msgstr ""
+msgstr "Desativar"
 
 #: app/templates/insumos/index.html:193
 msgid "No hay insumos registrados"
-msgstr ""
+msgstr "Nenhum produto cadastrado"
 
 #: app/templates/insumos/index.html:196
 msgid "Crear primer insumo"
-msgstr ""
+msgstr "Criar o primeiro produto"
 
 #: app/templates/insumos/index.html:231
 msgid "No se encontraron insumos"
-msgstr ""
+msgstr "Nenhum produto encontrado"
 
 #: app/templates/lotes/create.html:2 app/templates/lotes/index.html:23
 msgid "Nuevo Lote"
-msgstr ""
+msgstr "Novo lote"
 
 #: app/templates/lotes/create.html:3
 msgid "Registrar Nuevo Lote"
-msgstr ""
+msgstr "Cadastrar novo lote"
 
 #: app/templates/lotes/create.html:16
 msgid "Nuevo lote para"
-msgstr ""
+msgstr "Novo lote para"
 
 #: app/templates/lotes/create.html:25
 msgid "N° de Lote"
-msgstr ""
+msgstr "Nº do lote"
 
 #: app/templates/lotes/create.html:36
 msgid "Sin proveedor"
-msgstr ""
+msgstr "Sem fornecedor"
 
 #: app/templates/lotes/create.html:53
 msgid "und"
-msgstr ""
+msgstr "unidades"
 
 #: app/templates/lotes/create.html:57
 msgid "Costo de Compra"
-msgstr ""
+msgstr "Custo de compra"
 
 #: app/templates/lotes/create.html:63
 msgid "Precio al que se compró este lote"
-msgstr ""
+msgstr "Preço pelo qual este lote foi comprado"
 
 #: app/templates/lotes/create.html:70
 msgid "Fecha de Entrada"
-msgstr ""
+msgstr "Data de entrada"
 
 #: app/templates/lotes/create.html:87
 msgid "Este lote ya está vencido"
-msgstr ""
+msgstr "Este lote já está vencido"
 
 #: app/templates/lotes/create.html:94
 msgid "Registrar Lote"
-msgstr ""
+msgstr "Cadastrar lote"
 
 #: app/templates/lotes/index.html:2
 msgid "Lotes"
-msgstr ""
+msgstr "Lotes"
 
 #: app/templates/lotes/index.html:3
 msgid "Lotes de Insumo"
-msgstr ""
+msgstr "Lotes do produto"
 
 #: app/templates/lotes/index.html:7
 msgid "¿Eliminar lote"
-msgstr ""
+msgstr "Excluir lote"
 
 #: app/templates/lotes/index.html:31
 msgid "Total Lotes"
-msgstr ""
+msgstr "Total de lotes"
 
 #: app/templates/lotes/index.html:37
 msgid "Unidades Totales"
-msgstr ""
+msgstr "Total de unidades"
 
 #: app/templates/lotes/index.html:49
-#, fuzzy, python-format
 msgid "Vencidos"
-msgstr ""
+msgstr "Vencidos"
 
 #: app/templates/lotes/index.html:57
 msgid "Listado de Lotes"
-msgstr ""
+msgstr "Lista de lotes"
 
 #: app/templates/lotes/index.html:61
 msgid "Buscar lote..."
-msgstr ""
+msgstr "Buscar lote..."
 
 #: app/templates/lotes/index.html:69
 msgid "N° Lote"
-msgstr ""
+msgstr "Nº do lote"
 
 #: app/templates/lotes/index.html:72
 msgid "Costo Compra"
-msgstr ""
+msgstr "Custo de compra"
 
 #: app/templates/lotes/index.html:73
 msgid "Fecha Entrada"
-msgstr ""
+msgstr "Data de entrada"
 
 #: app/templates/lotes/index.html:133
 msgid "No hay lotes registrados para este insumo"
-msgstr ""
+msgstr "Nenhum lote cadastrado para este produto"
 
 #: app/templates/lotes/index.html:137
 msgid "Registrar primer lote"
-msgstr ""
+msgstr "Cadastrar o primeiro lote"
 
 #: app/templates/main/dashboard.html:4
 msgid "Panel de Control"
-msgstr ""
+msgstr "Painel"
 
 #: app/templates/main/dashboard.html:19
 #, python-format
 msgid "%(num)d producto vencido"
 msgid_plural "%(num)d productos vencidos"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d produto vencido"
+msgstr[1] "%(num)d produtos vencidos"
 
 #: app/templates/main/dashboard.html:23
 msgid "venció"
-msgstr ""
+msgstr "venceu em"
 
 #: app/templates/main/dashboard.html:30 app/templates/main/dashboard.html:51
 #: app/templates/main/dashboard.html:72
 msgid "Revisar"
-msgstr ""
+msgstr "Ver"
 
 #: app/templates/main/dashboard.html:40
 #, python-format
 msgid "%(num)d producto vence en los próximos 30 días"
 msgid_plural "%(num)d productos vencen en los próximos 30 días"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d produto vence nos próximos 30 dias"
+msgstr[1] "%(num)d produtos vencem nos próximos 30 dias"
 
 #: app/templates/main/dashboard.html:61
 #, python-format
 msgid "%(num)d producto con stock bajo (≤ 5 unidades)"
 msgid_plural "%(num)d productos con stock bajo (≤ 5 unidades)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d produto com estoque baixo (≤ 5 unidades)"
+msgstr[1] "%(num)d produtos com estoque baixo (≤ 5 unidades)"
 
 #: app/templates/main/dashboard.html:65 app/templates/main/dashboard.html:66
 msgid "uds."
-msgstr ""
+msgstr "unidades"
 
 #: app/templates/main/dashboard.html:89
 msgid "Total Productos"
-msgstr ""
+msgstr "Total de produtos"
 
 #: app/templates/main/dashboard.html:92
 msgid "Activos en inventario"
-msgstr ""
+msgstr "Ativos no inventário"
 
 #: app/templates/main/dashboard.html:106
 msgid "Clientes Activos"
-msgstr ""
+msgstr "Clientes ativos"
 
 #: app/templates/main/dashboard.html:109
 msgid "Registrados"
-msgstr ""
+msgstr "Cadastrados"
 
 #: app/templates/main/dashboard.html:123
 msgid "Movimientos Hoy"
-msgstr ""
+msgstr "Movimentações de hoje"
 
 #: app/templates/main/dashboard.html:126
 msgid "Actualizado ahora"
-msgstr ""
+msgstr "Atualizado agora"
 
 #: app/templates/main/dashboard.html:144
 msgid "ALERTAS ACTIVAS:"
-msgstr ""
+msgstr "ALERTAS ATIVOS:"
 
 #: app/templates/main/dashboard.html:148
 #, python-format
 msgid "%(num)d vencido"
 msgid_plural "%(num)d vencidos"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d vencido"
+msgstr[1] "%(num)d vencidos"
 
 #: app/templates/main/dashboard.html:153
 #, python-format
 msgid "%(num)d por vencer"
 msgid_plural "%(num)d por vencer"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d a vencer"
+msgstr[1] "%(num)d a vencer"
 
 #: app/templates/main/dashboard.html:158
 #, python-format
 msgid "%(num)d stock bajo"
 msgid_plural "%(num)d stock bajo"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d estoque baixo"
+msgstr[1] "%(num)d estoques baixos"
 
 #: app/templates/main/dashboard.html:173
 msgid "Movimientos — Últimos 7 días"
-msgstr ""
+msgstr "Movimentações — últimos 7 dias"
 
 #: app/templates/main/dashboard.html:176
 msgid "Entradas vs Salidas"
-msgstr ""
+msgstr "Entradas vs saídas"
 
 #: app/templates/main/dashboard.html:189
 msgid "Top 5 más vendidos"
-msgstr ""
+msgstr "Top 5 mais vendidos"
 
 #: app/templates/main/dashboard.html:199
 msgid "Uds."
-msgstr ""
+msgstr "Unidades"
 
 #: app/templates/main/dashboard.html:214
 msgid "Sin datos"
-msgstr ""
+msgstr "Sem dados"
 
 #: app/templates/main/dashboard.html:235
 msgid "Últimos Movimientos"
-msgstr ""
+msgstr "Movimentações recentes"
 
 #: app/templates/main/dashboard.html:249
 #: app/templates/movimientos/create.html:364
 #: app/templates/movimientos/edit.html:21
 #: app/templates/movimientos/index.html:65
 msgid "Precio"
-msgstr ""
+msgstr "Preço"
 
 #: app/templates/main/dashboard.html:266
 #: app/templates/movimientos/index.html:127
 msgid "No hay movimientos registrados"
-msgstr ""
+msgstr "Nenhuma movimentação registrada"
 
 #: app/templates/main/dashboard.html:285
 #: app/templates/movimientos/dashboard.html:15
 #: app/templates/movimientos/index.html:24
 msgid "Entradas"
-msgstr ""
+msgstr "Entrada"
 
 #: app/templates/main/dashboard.html:286
 #: app/templates/movimientos/dashboard.html:21
 #: app/templates/movimientos/index.html:32
 msgid "Salidas"
-msgstr ""
+msgstr "Saída"
 
 #: app/templates/movimientos/create.html:2
 #: app/templates/movimientos/index.html:11
 msgid "Nuevo Movimiento"
-msgstr ""
+msgstr "Nova movimentação"
 
 #: app/templates/movimientos/create.html:3
 msgid "Registrar Movimiento"
-msgstr ""
+msgstr "Registrar movimentação"
 
 #: app/templates/movimientos/create.html:18
 msgid "Confirmar"
-msgstr ""
+msgstr "Confirmar"
 
 #: app/templates/movimientos/create.html:30
 msgid "Seleccionar Cliente / Proveedor"
-msgstr ""
+msgstr "Selecionar cliente / fornecedor"
 
 #: app/templates/movimientos/create.html:37
 msgid "Movimiento rápido — Usuario Ocasional"
-msgstr ""
+msgstr "Movimentação rápida — Usuário ocasional"
 
 #: app/templates/movimientos/create.html:44
 msgid "Buscar cliente / proveedor"
-msgstr ""
+msgstr "Buscar cliente / fornecedor"
 
 #: app/templates/movimientos/create.html:50
 msgid "Nombre o documento..."
-msgstr ""
+msgstr "Nome ou documento..."
 
 #: app/templates/movimientos/create.html:60
 msgid "Cliente seleccionado"
-msgstr ""
+msgstr "Cliente selecionado"
 
 #: app/templates/movimientos/create.html:62
 msgid "Sin seleccionar"
-msgstr ""
+msgstr "Nenhum selecionado"
 
 #: app/templates/movimientos/create.html:71
 msgid "Este movimiento quedará registrado como"
-msgstr ""
+msgstr "Esta movimentação será registrada como"
 
 #: app/templates/movimientos/create.html:71
 msgid "Usuario Ocasional"
-msgstr ""
+msgstr "Usuário ocasional"
 
 #: app/templates/movimientos/create.html:72
 msgid "Puedes editarlo después en Clientes / Proveedores."
-msgstr ""
+msgstr "Você pode editá-lo depois em Clientes / Fornecedores."
 
 #: app/templates/movimientos/create.html:85
 msgid "Buscar producto"
-msgstr ""
+msgstr "Buscar produto"
 
 #: app/templates/movimientos/create.html:91
 msgid "Nombre o código..."
-msgstr ""
+msgstr "Nome ou código..."
 
 #: app/templates/movimientos/create.html:103
 msgid ""
 "Selecciona un producto para agregarlo a la lista. Puedes agregar "
 "múltiples productos."
 msgstr ""
+"Selecione um produto para adicioná-lo à lista. Você pode adicionar vários"
+" produtos."
 
 #: app/templates/movimientos/create.html:112
 msgid "No hay productos agregados"
-msgstr ""
+msgstr "Nenhum produto adicionado"
 
 #: app/templates/movimientos/create.html:119
 msgid "Detalles de la Operación"
-msgstr ""
-
-#: app/templates/movimientos/create.html:124
-#: app/templates/movimientos/edit.html:35
-msgid "Tipo de operación"
-msgstr ""
-
-#: app/templates/movimientos/create.html:126
-#: app/templates/movimientos/edit.html:38
-msgid "Venta (Salida)"
-msgstr ""
-
-#: app/templates/movimientos/create.html:127
-#: app/templates/movimientos/edit.html:40
-msgid "Compra (Entrada)"
-msgstr ""
-
-#: app/templates/movimientos/create.html:128
-#: app/templates/movimientos/edit.html:42
-#: app/templates/movimientos/index.html:84
-msgid "Devolución"
-msgstr ""
+msgstr "Detalhes da operação"
 
 #: app/templates/movimientos/create.html:129
 msgid "Baja (Daño / Vencimiento)"
-msgstr ""
-
-#: app/templates/movimientos/create.html:134
-msgid "N° Comprobante"
-msgstr ""
+msgstr "Baixa (dano / vencimento)"
 
 #: app/templates/movimientos/create.html:139
 msgid "Para bajas el sistema genera el comprobante automáticamente."
-msgstr ""
-
-#: app/templates/movimientos/create.html:144
-msgid "Vencimiento del lote"
-msgstr ""
+msgstr "Para baixas, o sistema gera o recibo automaticamente."
 
 #: app/templates/movimientos/create.html:171
 msgid "TOTAL:"
-msgstr ""
-
-#: app/templates/movimientos/create.html:182
-msgid "Guardar Movimiento"
-msgstr ""
+msgstr "TOTAL:"
 
 #: app/templates/movimientos/create.html:249
 #: app/templates/movimientos/create.html:294
 msgid "No encontrado"
-msgstr ""
+msgstr "Não encontrado"
 
 #: app/templates/movimientos/create.html:453
 msgid "Generado automáticamente"
-msgstr ""
+msgstr "Gerado automaticamente"
 
 #: app/templates/movimientos/dashboard.html:2
 msgid "Movimientos - Dashboard"
-msgstr ""
+msgstr "Movimentações - Painel"
 
 #: app/templates/movimientos/dashboard.html:3
 msgid "Dashboard de Movimientos"
-msgstr ""
+msgstr "Painel de movimentações"
 
 #: app/templates/movimientos/dashboard.html:9
 #: app/templates/movimientos/index.html:18
 msgid "Total Movimientos"
-msgstr ""
+msgstr "Total de movimentações"
 
 #: app/templates/movimientos/delete.html:2
 #: app/templates/movimientos/delete.html:3
 msgid "Eliminar Movimiento"
-msgstr ""
+msgstr "Excluir movimentação"
 
 #: app/templates/movimientos/delete.html:7
 msgid "¿Seguro que quieres eliminar este movimiento?"
-msgstr ""
+msgstr "Tem certeza de que deseja excluir esta movimentação?"
 
 #: app/templates/movimientos/edit.html:2 app/templates/movimientos/edit.html:3
 msgid "Editar Movimiento"
-msgstr ""
+msgstr "Editar movimentação"
 
 #: app/templates/movimientos/edit.html:14
 msgid "ID Insumo"
-msgstr ""
+msgstr "ID do produto"
 
 #: app/templates/movimientos/edit.html:47
 msgid "Fecha Vencimiento"
-msgstr ""
+msgstr "Data de validade"
 
 #: app/templates/movimientos/edit.html:63
 msgid "Actualizar"
-msgstr ""
+msgstr "Atualizar"
 
 #: app/templates/movimientos/index.html:3
 msgid "Gestión de Movimientos"
-msgstr ""
+msgstr "Gestão de movimentações"
 
 #: app/templates/movimientos/index.html:9
 msgid "Administre las entradas y salidas de inventario"
-msgstr ""
+msgstr "Gerencie as entradas e saídas do inventário"
 
 #: app/templates/movimientos/index.html:40
 msgid "Devoluciones"
-msgstr ""
+msgstr "Devoluções"
 
 #: app/templates/movimientos/index.html:50
 msgid "Listado de Movimientos"
-msgstr ""
+msgstr "Lista de movimentações"
 
 #: app/templates/movimientos/index.html:53
 msgid "Buscar..."
-msgstr ""
+msgstr "Buscar..."
 
 #: app/templates/movimientos/index.html:63
 msgid "Cliente / Proveedor"
-msgstr ""
+msgstr "Cliente / Fornecedor"
 
 #: app/templates/movimientos/index.html:66
 msgid "Cant."
-msgstr ""
+msgstr "Qtd."
 
 #: app/templates/movimientos/index.html:69
 msgid "Realizado por"
-msgstr ""
+msgstr "Realizado por"
 
 #: app/templates/movimientos/index.html:80
 msgid "Entrada"
-msgstr ""
+msgstr "Entrada"
 
 #: app/templates/movimientos/index.html:82
 msgid "Salida"
-msgstr ""
-
-#~ msgid "¿Eliminar este movimiento?"
-#~ msgstr ""
+msgstr "Saída"
 

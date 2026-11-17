@@ -18,7 +18,7 @@ def obtener_o_crear_usuario_ocasional():
             nombre              = "Usuario Ocasional",
             direccion           = "N/A",
             celular             = "0000000000",
-            tipo                = "Cliente",
+            tipo                = "C",
             tipo_identificacion = "NIT",
             correo              = None
         )

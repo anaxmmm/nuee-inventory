@@ -73,13 +73,13 @@
                 <div class="btn-group w-100" role="group">
                   <input type="radio" class="btn-check" name="tipo"
                     id="tipoCliente" value="C"
-                    {% if cliente.tipo == 'C' %}checked{% endif %}>
+                    {% if cliente.tipo in ('C', 'Cliente') %}checked{% endif %}>
                   <label class="btn btn-outline-primary" for="tipoCliente">
                     <i class="bi bi-person me-1"></i>{{ _('Cliente') }}
                   </label>
                   <input type="radio" class="btn-check" name="tipo"
                     id="tipoProveedor" value="P"
-                    {% if cliente.tipo == 'P' %}checked{% endif %}>
+                    {% if cliente.tipo in ('P', 'Proveedor') %}checked{% endif %}>
                   <label class="btn btn-outline-warning" for="tipoProveedor">
                     <i class="bi bi-truck me-1"></i>{{ _('Proveedor') }}
                   </label>

@@ -23,7 +23,7 @@ class Config:
     MAIL_PORT           = 587
     MAIL_USE_TLS        = True
     MAIL_USE_SSL        = False
-    MAIL_DEBUG          = True
+    MAIL_DEBUG          = os.environ.get('MAIL_DEBUG', 'False') == 'True'
     MAIL_USERNAME       = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD       = os.environ.get('MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER = os.environ.get('MAIL_USERNAME')
@@ -42,7 +42,10 @@ class DevelopmentConfig(Config):
         "DATABASE=NueeDB;"
         "Trusted_Connection=yes;"
     )
-    SQLALCHEMY_DATABASE_URI = f"mssql+pyodbc:///?odbc_connect={params}"
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL",
+        f"mssql+pyodbc:///?odbc_connect={params}"
+    )
 
 
 class ProductionConfig(Config):
@@ -58,3 +61,9 @@ class ProductionConfig(Config):
         "DATABASE_URL",
         f"mssql+pyodbc:///?odbc_connect={params}"
     )
+
+
+CONFIGS = {
+    "development": DevelopmentConfig,
+    "production":  ProductionConfig,
+}
